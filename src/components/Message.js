@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import moment from 'moment';
 import Bubble from './Bubble';
 
 const ForeignMessage = styled.div`
@@ -36,7 +37,7 @@ const message = function ({author, text, time, isOwnMessage}) {
 
   return (
     <Message>
-      <Time>{time}</Time>
+      <Time>{moment(time).format('h:mm a')}</Time>
       <Bubble author={author} text={text} isOwnMessage={isOwnMessage}/>
     </Message>
   );
