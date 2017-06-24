@@ -1,0 +1,16 @@
+.chatview {
+    background-color: white;
+    font-family: "Helvetica Neue", Arial, Verdana, sans-serif;
+    width: 100%;
+}
+
+.chatview > ul {
+    list-style-type: none;
+}
+
+.bubble {
+    background-color: lightblue;
+    border-radius: 5px;
+    margin: 1em 0;
+    padding: 3px 5px;
+}

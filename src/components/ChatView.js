@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Bubble from './Bubble';
+import css from '../styles/index.css';
 
 const ChatView = function ({messages}) {
 
@@ -10,7 +11,9 @@ const ChatView = function ({messages}) {
     });
 
     return (
-        <ul>{bubbles}</ul>
+        <div className="chatview">
+            <ul>{bubbles}</ul>
+        </div>
     );
 };
 

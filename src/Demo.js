@@ -20,8 +20,13 @@ class Demo extends Component {
   }
 
   render () {
-    return <ChateauBuble messages={this.state.messages}
+    return <div style={{
+        margin: '0 auto',
+        width: 480
+      }}>
+      <ChateauBuble messages={this.state.messages}
                          onAddMessage={this.onAddMessage} />
+      </div>
   }
 }
 
