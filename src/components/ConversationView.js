@@ -34,10 +34,11 @@ class conversationview extends React.Component {
     bubbles.push(dummyli);
 
     return (
-        <ConversationView>{bubbles}</ConversationView>
+      <ConversationView>{bubbles}</ConversationView>
     );
-  }
 
-}
+  }
+  
+};
 
 export default conversationview;
