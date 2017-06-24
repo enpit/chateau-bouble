@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import moment from 'moment';
 
 import Bubble from './Bubble';
 
@@ -40,7 +41,7 @@ class message extends React.Component {
 
     return (
       <StyledMessage>
-        <Time>{time}</Time>
+        <Time>{moment(time).format('h:mm a')}</Time>
         <Bubble author={author} text={text} isOwnMessage={isOwnMessage}/>
       </StyledMessage>
     );

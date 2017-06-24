@@ -5,12 +5,13 @@ const TextView = styled.div`
   background-color: #ededed;
   clear: right;
   padding: 5px;
-  width: 100%;
+  width: calc(100% - 10px);
 `;
 
 const TextInputWrapper = styled.div`
   display: inline-block;
-  width: 90%;
+  margin-left: 10px;
+  width: calc(90% - 10px);
 `;
 
 const TextSubmitWrapper = styled.div`
