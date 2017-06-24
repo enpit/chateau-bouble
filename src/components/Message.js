@@ -32,7 +32,7 @@ class message extends React.Component {
   }
 
   render () {
-    const {author, content, time, isOwnMessage} = this.props;
+    const {author, content, time, type, isOwnMessage} = this.props;
     let Bubble, StyledMessage;
 
     if (isOwnMessage) {
@@ -41,10 +41,12 @@ class message extends React.Component {
       StyledMessage = ForeignMessage;
     }
 
-    if (typeof content === 'string') { // content is a text message
+    if (type === 'text') {
       Bubble = TextBubble;
-    } else {
+    } else if (type === 'image'){
       Bubble = ImageBubble;
+    } else {
+      Bubble = null;
     }
 
     return (

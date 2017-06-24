@@ -26,9 +26,9 @@ class conversationview extends React.Component {
       var bubbleli;
 
       if (index === messages.length-1) {
-        bubbleli = <li key={index} ref={ (el) => {this.el = el;} }><Message author={message.author} content={message.content} time={message.time} isOwnMessage={message.author === user} /></li>;
+        bubbleli = <li key={index} ref={ (el) => {this.el = el;} }><Message author={message.author} content={message.content} time={message.time} type={message.type} isOwnMessage={message.author === user} /></li>;
       } else {
-        bubbleli = <li key={index}><Message author={message.author} content={message.content} time={message.time} isOwnMessage={message.author === user} /></li>;
+        bubbleli = <li key={index}><Message author={message.author} content={message.content} time={message.time} type={message.type} isOwnMessage={message.author === user} /></li>;
       }
 
       return (

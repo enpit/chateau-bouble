@@ -43,22 +43,22 @@ const TextSubmitButton = styled.span`
   width: 28px;
 `;
 
-const TextInput = ({text, onSubmit, onUpdateMessage}) => (
+const TextInput = ({content, onSubmit, onUpdateMessage}) => (
   <TextView>
     <TextInputWrapper>
       <TextInputArea type="text"
-        value={text}
+        value={content}
         onChange={(event) => onUpdateMessage(event.target.value)}
         onKeyUp={(event) => {
-          if (event.keyCode === 13 && text !== '') {
-            onSubmit(text);
+          if (event.keyCode === 13 && content !== '') {
+            onSubmit(content);
           }
         }}
         placeholder="type here"
       />
     </TextInputWrapper>
     <TextSubmitWrapper>
-      <TextSubmitButton onClick={() => onSubmit(text)}>></TextSubmitButton>
+      <TextSubmitButton onClick={() => onSubmit(content)}>></TextSubmitButton>
     </TextSubmitWrapper>
   </TextView>
 );
