@@ -2,14 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 
 const ForeignBubble = styled.div`
-  background-color: #e9ff70;
+  background-color: ${props => props.theme.highlights[1]};
   border-radius: 10px;
   display: inline-block;
   padding: 5px 10px;
 `;
 
 const OwnBubble = styled(ForeignBubble)`
-  background-color: #70d6ff;
+  background-color: ${props => props.theme.highlights[0]};
 `;
 
 const Text = styled.span`
@@ -17,7 +17,7 @@ const Text = styled.span`
 `;
 
 const ForeignAuthor = styled.span`
-  color: #8c9943;
+  color: ${props => props.theme.text[2]};
   display: block;
   font-size: 0.75em;
   font-weight: bold;

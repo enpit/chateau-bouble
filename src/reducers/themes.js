@@ -1,8 +1,7 @@
 const INITIAL_STATE = {
   current: {
-    color: 'black',
     backgrounds: ['#fff', '#ededed'],
-    text: ['#000', '#b2b2b2'],
+    text: ['#000', '#b2b2b2', '#8c9943', '#999'],
     highlights: ['#70d6ff', '#e9ff70']
   }
 }
