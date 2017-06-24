@@ -50,7 +50,7 @@ const TextInput = ({text, onSubmit, onUpdateMessage}) => (
         value={text}
         onChange={(event) => onUpdateMessage(event.target.value)}
         onKeyUp={(event) => {
-          if (event.keyCode === 13) {
+          if (event.keyCode === 13 && text !== '') {
             onSubmit(text);
           }
         }}
