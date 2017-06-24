@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
 import css from '../styles/index.css';
+import React from 'react';
 import ConversationView from './ConversationView';
 
 const ChatView = function ({messages, user}) {
