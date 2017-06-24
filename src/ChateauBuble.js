@@ -5,9 +5,8 @@ import Chat from './containers/Chat';
 import configureStore from './store';
 
 import {
-  clearMessages,
   setMessages,
-  setUser
+  setMetadata
 } from './actions/messages';
 
 class ChateauBuble extends Component {
@@ -40,7 +39,11 @@ class ChateauBuble extends Component {
 
   updateProps (props) {
     this.store.dispatch(setMessages(props.messages));
-    this.store.dispatch(setUser(props.user));
+    this.store.dispatch(setMetadata({
+      status: props.chatStatus,
+      title: props.chatTitle,
+      user: props.user,
+    }));
   }
 
   render () {

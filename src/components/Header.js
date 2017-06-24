@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import styled from 'styled-components';
 
 const Centered = styled.div`
@@ -16,11 +17,19 @@ const Status = styled.div`
   color: ${props => props.theme.highlights[0]};;
 `;
 
-export default ({ title = '' }) => (
+const mapStateToProps = state => ({
+  status: state.messages.status,
+  title: state.messages.title
+});
+
+const Header = ({ title = '', status = '' }) => (
   <header>
     <Centered>
       <Title>{title}</Title>
-      <Status>online</Status>
+      <Status>{status}</Status>
     </Centered>
   </header>
 );
+
+
+export default connect(mapStateToProps)(Header);
