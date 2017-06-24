@@ -5,7 +5,7 @@ const ChatView = function ({messages}) {
 
     const bubbles = messages.map((message, index) => {
         return (
-            <li><Bubble key={index} author={message.author} text={message.text} /></li>
+            <li key={index}><Bubble author={message.author} text={message.text} /></li>
         );
     });
 
