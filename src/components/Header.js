@@ -7,8 +7,6 @@ const size = 32;
 const StyledHeader = styled.header`
   background: ${props => props.theme.backgrounds[1]};
   height: 10%;
-  padding-bottom: 10px;
-  padding-top: 10px;
   width: 100%;
 `;
 
@@ -23,6 +21,9 @@ const Centered = styled.div`
 
 const Right = styled.div`
   display: inline-block;
+  position: relative;
+  top: 50%;
+  transform: translate(0, -50%);
 `;
 
 const Title = styled.div`
