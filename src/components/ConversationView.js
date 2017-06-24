@@ -3,12 +3,12 @@ import Message from './Message';
 import styled from 'styled-components';
 
 const ConversationView = styled.ul`
-    height: calc(80% - 1em);
-    list-style-type: none;
-    margin: 0;
-    overflow-y: scroll;
-    padding-left: 0;
-    padding-top: 1em;
+  height: calc(80% - 1em);
+  list-style-type: none;
+  margin: 0;
+  overflow-y: scroll;
+  padding-left: 0;
+  padding-top: 1em;
 `;
 
 class conversationview extends React.Component {
@@ -37,16 +37,12 @@ class conversationview extends React.Component {
 
     });
 
-    //const dummyli = <li key={bubbles.length} ref={ (el) => {this.el = el;} }></li>;
-
-    //bubbles.push(dummyli);
-
     return (
       <ConversationView>{bubbles}</ConversationView>
     );
 
   }
-  
+
 };
 
 export default conversationview;
