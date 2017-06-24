@@ -3,7 +3,9 @@ import {
   SET_USER
 } from '../actions/messages';
 
-const INITIAL_STATE = {};
+const INITIAL_STATE = {
+  all: []
+};
 
 const messages = (state = INITIAL_STATE, action) => {
   switch (action.type) {

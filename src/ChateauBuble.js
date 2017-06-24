@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 
 import Chat from './containers/Chat';
@@ -9,17 +9,30 @@ import {
   setUser
 } from './actions/messages';
 
-const ChateauBuble = ({
-  messages = [],
-  user = ''
-}) => {
-  store.dispatch(setMessages(messages));
-  store.dispatch(setUser(user));
-  return (
-    <Provider store={store}>
-      <Chat />
-    </Provider>
-  )
-};
+class ChateauBuble extends Component {
+
+  constructor (props) {
+    super(props);
+    this.updateProps(props);
+  }
+
+  componentWillReceiveProps (nextProps) {
+    this.updateProps(nextProps);
+  }
+
+  updateProps (props) {
+    store.dispatch(setMessages(props.messages));
+    store.dispatch(setUser(props.user));
+  }
+
+  render () {
+    return (
+      <Provider store={store}>
+        <Chat />
+      </Provider>
+    )
+  }
+}
+
 
 export default ChateauBuble;
