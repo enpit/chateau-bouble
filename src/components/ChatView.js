@@ -1,7 +1,8 @@
 //import css from '../styles/index.css';
 import React from 'react';
-import styled from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
 
+import Header from './Header';
 import ConversationView from './ConversationView';
 import MessageInput from '../containers/MessageInput';
 
@@ -12,13 +13,16 @@ const ChatView = styled.div`
     width: 100%
 `;
 
-const chatview = function ({messages, onAddMessage, user}) {
+const chatview = function ({messages, onAddMessage, theme, user}) {
 
     return (
-        <ChatView>
-            <ConversationView messages={messages} user={user} />
-            <MessageInput onAddMessage={onAddMessage} user={user} />
-        </ChatView>
+        <ThemeProvider theme={theme}>
+            <ChatView>
+                <Header title="enpit" />
+                <ConversationView messages={messages} user={user} />
+                <MessageInput onAddMessage={onAddMessage} user={user} />
+            </ChatView>
+        </ThemeProvider>
     );
 };
 
