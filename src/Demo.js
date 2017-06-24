@@ -8,8 +8,8 @@ class Demo extends Component {
     super();
     this.state = {
       messages: [
-        { author: 'Janis', text: '🏰' },
-        { author: 'Peter', text: '🗯' }
+        { author: 'Peter', text: 'How\'s your hackathon going?', time: '13:14' },
+        { author: 'Janis', text: 'Awesome!', time: '13:15' }
       ],
       user: 'Janis'
     }
@@ -22,11 +22,16 @@ class Demo extends Component {
   }
 
   render () {
-    return <ChateauBuble messages={this.state.messages}
-                         onAddMessage={(msg) => this.onAddMessage(msg)}
-                         theme="default"
-                         user={this.state.user}
-                         />
+      return <div style={{
+          margin: '0 auto',
+          width: 480
+        }}>
+        <ChateauBuble messages={this.state.messages}
+                      onAddMessage={(msg) => this.onAddMessage(msg)}
+                      theme="default"
+                      user={this.state.user}
+                      />
+        </div>
   }
 }
 

@@ -4,8 +4,9 @@ import ChatView from '../components/ChatView';
 
 const mapStateToProps = state => {
   return {
-    messages: state.messages.all
-  }
+    messages: state.messages.all,
+    user: state.messages.user
+  };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
