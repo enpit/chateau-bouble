@@ -2,11 +2,23 @@ import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
-const Centered = styled.div`
+const size = 32;
+
+const StyledHeader = styled.header`
   background: ${props => props.theme.backgrounds[1]};
   padding-bottom: 10px;
   padding-top: 10px;
+  width: 100%;
+`;
+
+const Centered = styled.div`
+  display: inline-block;
   text-align: center;
+  width: calc(100% - ${size * 1.5}px);
+`;
+
+const Right = styled.div`
+  display: inline-block;
 `;
 
 const Title = styled.div`
@@ -17,18 +29,30 @@ const Status = styled.div`
   color: ${props => props.theme.highlights[0]};;
 `;
 
+const Image = styled.img`
+  border-radius: ${size/2}px;
+  height: ${size}px;
+  margin-right: ${size/2}px
+  text-align: right;
+  width: ${size}px;
+`;
+
 const mapStateToProps = state => ({
   status: state.messages.status,
-  title: state.messages.title
+  title: state.messages.title,
+  user: state.messages.user
 });
 
-const Header = ({ title = '', status = '' }) => (
-  <header>
+const Header = ({ title = '', status = '', user = {}}) => (
+  <StyledHeader>
     <Centered>
       <Title>{title}</Title>
       <Status>{status}</Status>
     </Centered>
-  </header>
+    <Right>
+      <Image alt={user.name} src={user.image} />
+    </Right>
+  </StyledHeader>
 );
 
 
