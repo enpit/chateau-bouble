@@ -10,7 +10,9 @@ const ChatView = styled.div `
     background-color: ${props => props.theme.backgrounds[0]};
     font-family: "Helvetica Neue", Arial, Verdana, sans-serif;
     font-size: 14px;
-    width: 100%
+    height: ${props => props.theme.dimensions.height}; 
+    overflow-y: scroll;
+    width: ${props => props.theme.dimensions.width};
 `;
 
 export default ({messages, onAddMessage, theme, user}) => (

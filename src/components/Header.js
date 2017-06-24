@@ -2,11 +2,16 @@ import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
-const Centered = styled.div`
+const Wrapper = styled.header`
   background: ${props => props.theme.backgrounds[1]};
-  padding-bottom: 10px;
-  padding-top: 10px;
+  height: 10%;
+`;
+
+const Centered = styled.div`
+  position: relative;
   text-align: center;
+  top: 50%;
+  transform: translate(0, -50%);
 `;
 
 const Title = styled.div`
@@ -23,12 +28,12 @@ const mapStateToProps = state => ({
 });
 
 const Header = ({ title = '', status = '' }) => (
-  <header>
+  <Wrapper>
     <Centered>
       <Title>{title}</Title>
       <Status>{status}</Status>
     </Centered>
-  </header>
+  </Wrapper>
 );
 
 
