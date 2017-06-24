@@ -13,7 +13,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onUpdateMessage: (text) => {
-      const message = { author: ownProps.user, text };
+      const message = { author: ownProps.user, text, time: (new Date()).getTime() };
       dispatch(updateMessage(message));
     },
     onSubmit: (text) => {
