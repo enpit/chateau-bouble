@@ -16,8 +16,9 @@ class Demo extends Component {
   }
 
   onAddMessage (msg) {
-    this.setState((prevState, props) =>
-      ([...(prevState.messages), msg]));
+    this.setState((prevState, props) => {
+      return { messages: ([...(prevState.messages), msg])}
+    });
   }
 
   render () {
@@ -27,8 +28,10 @@ class Demo extends Component {
       }}>
       <ChateauBuble messages={this.state.messages}
                          onAddMessage={this.onAddMessage}
-                         user={this.state.user} />
-      </div>
+                         theme="default"
+                         user={this.state.user}
+                         />
+        </div>
   }
 }
 
