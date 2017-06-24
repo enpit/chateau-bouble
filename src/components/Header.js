@@ -13,6 +13,7 @@ const StyledHeader = styled.header`
 const Centered = styled.div`
   display: inline-block;
   position: relative;
+  right: -${size * 0.75}px;
   text-align: center;
   top: 50%;
   transform: translate(0, -50%);
