@@ -8,8 +8,12 @@ const mapStateToProps = state => {
   }
 };
 
-const mapDispatchToProps = dispatch => {
-  return {};
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    onAddMessage: (message) => {
+      ownProps.onAddMessage(message);
+    }
+  };
 };
 
 const Chat = connect(

@@ -5,6 +5,7 @@ import Chat from './containers/Chat';
 import configureStore from './store';
 
 import {
+  clearMessages,
   setMessages,
   setUser
 } from './actions/messages';
@@ -13,8 +14,9 @@ class ChateauBuble extends Component {
 
   constructor (props) {
     super(props);
-    this.store = configureStore({});
+
     this.initialLoad = true;
+    this.store = configureStore({});
     this.updateProps(props);
   }
 
@@ -44,7 +46,7 @@ class ChateauBuble extends Component {
   render () {
     return (
       <Provider store={this.store}>
-        <Chat />
+        <Chat onAddMessage={this.props.onAddMessage} />
       </Provider>
     )
   }
