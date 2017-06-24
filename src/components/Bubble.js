@@ -6,7 +6,7 @@ import { createStore } from 'redux';
 const Bubble = function ({author, text}) {
     return (
       <Provider store={createStore(interaction)}>
-          <div>
+          <div className="bubble">
               <span>{author}:</span> <span>{text}</span>
           </div>
         </Provider>
