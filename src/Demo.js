@@ -14,6 +14,8 @@ class Demo extends Component {
         { author: 'Andreas', text: 'Good job', time: 1498329608910 },
         { author: 'Peter', text: 'thx', time: 1498329908910 }
       ],
+      chatStatus: 'online',
+      chatTitle: 'enpit #reactriot',
       user: 'Janis'
     }
   }
@@ -29,7 +31,9 @@ class Demo extends Component {
           margin: '0 auto',
           width: 480
         }}>
-        <ChateauBuble messages={this.state.messages}
+        <ChateauBuble chatStatus={this.state.chatStatus}
+                      chatTitle={this.state.chatTitle}
+                      messages={this.state.messages}
                       onAddMessage={(msg) => this.onAddMessage(msg)}
                       theme="default"
                       user={this.state.user}

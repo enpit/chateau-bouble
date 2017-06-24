@@ -1,7 +1,7 @@
 import {
   SEND_MESSAGE,
   SET_MESSAGES,
-  SET_USER,
+  SET_METADATA,
   UPDATE_MESSAGE
 } from '../actions/messages';
 
@@ -16,8 +16,13 @@ const messages = (state = INITIAL_STATE, action) => {
       return { ...state, sent: action.message };
     case SET_MESSAGES:
       return { ...state, all: action.messages };
-    case SET_USER:
-      return { ...state, user: action.user };
+    case SET_METADATA:
+      return {
+        ...state,
+        status: action.data.status,
+        title: action.data.title,
+        user: action.data.user
+      };
     case UPDATE_MESSAGE:
       return { ...state, current: action.message };
     default:

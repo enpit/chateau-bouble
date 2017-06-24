@@ -12,11 +12,11 @@ export const setMessages = (messages) => ({
   messages
 });
 
-export const SET_USER = 'SET_USER';
+export const SET_METADATA = 'SET_METADATA';
 
-export const setUser = (user) => ({
-  type: SET_USER,
-  user
+export const setMetadata = (data) => ({
+  type: SET_METADATA,
+  data
 });
 
 export const SEND_MESSAGE = 'SEND_MESSAGE';

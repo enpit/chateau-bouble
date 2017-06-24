@@ -5,7 +5,7 @@ const ForeignBubble = styled.div`
   background-color: ${props => props.theme.highlights[1]};
   border-radius: 10px;
   display: inline-block;
-  padding: 5px 10px;
+  padding: 7px 10px;
 `;
 
 const OwnBubble = styled(ForeignBubble)`
@@ -15,7 +15,8 @@ const OwnBubble = styled(ForeignBubble)`
 const Text = styled.span`
   display: inline-block;
   font-size: 14px;
-  max-width: 240px;
+  max-width: 220px;
+  text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.5);
   word-wrap: break-word;
 `;
 
