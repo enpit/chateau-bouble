@@ -2,7 +2,7 @@ import React from 'react';
 import Message from './Message';
 import styled from 'styled-components';
 
-const ConversationView = styled.ul `
+const ConversationView = styled.ul`
     list-style-type: none;
     padding-left: 0;
     padding-top: 1em;
@@ -17,7 +17,7 @@ const conversationview = function({messages, user}) {
           text={message.text}
           time={message.time}
           isOwnMessage={message.author.name === user} />
-        </li>
+      </li>
     );
   });
   return (

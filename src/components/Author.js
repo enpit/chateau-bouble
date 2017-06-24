@@ -13,7 +13,6 @@ const OwnAuthor = styled(ForeignAuthor)`
   display: none;
 `;
 
-
 const Author = ({author = {}, isOwnMessage = true }) => {
   if (isOwnMessage) {
     return <OwnAuthor></OwnAuthor>;
