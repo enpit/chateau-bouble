@@ -8,8 +8,8 @@ class Demo extends Component {
     super();
     this.state = {
       messages: [
-        { author: 'Janis', text: '🏰' },
-        { author: 'Peter', text: '🗯' }
+        { author: 'Peter', text: 'How\'s your hackathon going?', time: '13:14' },
+        { author: 'Janis', text: 'Awesome!' }
       ],
       user: 'Janis'
     }

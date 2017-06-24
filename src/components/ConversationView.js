@@ -5,12 +5,12 @@ const ChatView = function ({messages}) {
 
     const bubbles = messages.map((message, index) => {
         return (
-            <li key={index}><Bubble author={message.author} text={message.text} /></li>
+            <li key={index}><Bubble author={message.author} text={message.text} time={message.time}/></li>
         );
     });
 
     return (
-        <ul>{bubbles}</ul>
+        <ul className="conversation-view">{bubbles}</ul>
     );
 };
 

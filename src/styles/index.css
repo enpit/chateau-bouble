@@ -1,16 +1,45 @@
-.chatview {
+.chat-view {
     background-color: white;
     font-family: "Helvetica Neue", Arial, Verdana, sans-serif;
+    font-size: 14px;
     width: 100%;
 }
 
-.chatview > ul {
+.chat-view > ul {
     list-style-type: none;
 }
 
-.bubble {
-    background-color: lightblue;
-    border-radius: 5px;
+.conversation-view {
+    padding-top: 1em;
+}
+
+.bubblewrap {
     margin: 1em 0;
-    padding: 3px 5px;
+}
+
+.bubblewrap > .time {
+    color: #999;
+    display: block;
+    font-size: 0.75em;
+    font-weight: bold;
+    padding-left: 1em;
+    margin-bottom: 0.25em;
+}
+
+.bubble {
+    background-color: #e9ff70;
+    border-radius: 10px;
+    display: inline-block;
+    padding: 5px 10px;
+}
+
+.bubble > .author {
+    color: #8c9943;
+    display: block;
+    font-size: 0.75em;
+    font-weight: bold;
+}
+
+.bubble > .text {
+    font-size: 14px;
 }

@@ -5,7 +5,7 @@ import ConversationView from './ConversationView';
 const ChatView = function ({messages, user}) {
 
     return (
-        <div className="chatview">
+        <div className="chat-view">
             <ConversationView messages={messages} />
             <span>User: {user}</span>
         </div>

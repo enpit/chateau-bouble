@@ -3,11 +3,15 @@ import { Provider } from 'react-redux';
 import interaction from '../reducers/interaction';
 import { createStore } from 'redux';
 
-const Bubble = function ({author, text}) {
+const Bubble = function ({author, text, time}) {
     return (
       <Provider store={createStore(interaction)}>
-          <div className="bubble">
-              <span>{author}:</span> <span>{text}</span>
+          <div className="bubblewrap">
+            <span className="time">{time}</span>
+              <div className="bubble">
+                <span className="author">{author}</span>
+                <span className="text">{text}</span>
+              </div>
           </div>
         </Provider>
     );
