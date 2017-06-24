@@ -14,7 +14,11 @@ const ConversationView = styled.ul`
 class conversationview extends React.Component {
 
   componentDidUpdate () {
+    this.el.parentNode.style.overflowY = 'hidden';
     this.el.parentNode.scrollTop = this.el.parentNode.scrollHeight;
+    setTimeout(function () {
+      this.el.parentNode.style.overflowY = 'scroll';
+    }.bind(this),0);
   }
 
   render () {
