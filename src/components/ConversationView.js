@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 const ConversationView = styled.ul`
     list-style-type: none;
+    padding-left: 0;
     padding-top: 1em;
 `;
 
