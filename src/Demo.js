@@ -9,7 +9,9 @@ class Demo extends Component {
     this.state = {
       messages: [
         { author: 'Peter', text: 'How\'s your hackathon going?', time: '13:14' },
-        { author: 'Janis', text: 'Awesome!', time: '13:15' }
+        { author: 'Janis', text: 'Awesome!', time: '13:15' },
+        { author: 'Andreas', text: 'Good job', time: '13:37' },
+        { author: 'Peter', text: 'thx', time: '13:37' }
       ],
       user: 'Janis'
     }
