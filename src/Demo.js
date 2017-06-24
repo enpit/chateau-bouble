@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './demo.css';
 
 import ChateauBuble from './ChateauBuble';
 
