@@ -12,7 +12,12 @@ const conversationview = function({messages, user}) {
 
   const bubbles = messages.map((message, index) => {
     return (
-      <li key={index}><Message author={message.author} text={message.text} time={message.time} isOwnMessage={message.author === user}/></li>
+      <li key={index}>
+        <Message author={message.author}
+          text={message.text}
+          time={message.time}
+          isOwnMessage={message.author.name === user} />
+        </li>
     );
   });
   return (
