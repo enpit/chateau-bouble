@@ -1,18 +1,13 @@
 import React, { Component } from 'react';
-import Bubble from './Bubble';
 import css from '../styles/index.css';
+import ConversationView from './ConversationView';
 
-const ChatView = function ({messages}) {
-
-    const bubbles = messages.map((message, index) => {
-        return (
-            <li><Bubble key={index} author={message.author} text={message.text} /></li>
-        );
-    });
+const ChatView = function ({messages, user}) {
 
     return (
         <div className="chatview">
-            <ul>{bubbles}</ul>
+            <ConversationView messages={messages} />
+            <span>User: {user}</span>
         </div>
     );
 };
