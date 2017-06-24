@@ -27,9 +27,6 @@ const message = function ({author, text, time, isOwnMessage}) {
 
   if (isOwnMessage) {
     Message = OwnMessage;
-    Time = styled(Time)`
-
-    `;
   } else {
     Message = ForeignMessage;
   }
