@@ -5,7 +5,8 @@ import ChatView from '../components/ChatView';
 const mapStateToProps = state => {
   return {
     messages: state.messages.all,
-    user: state.messages.user
+    user: state.messages.user,
+    theme: state.themes.current
   };
 };
 

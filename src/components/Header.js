@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Centered = styled.div`
-  background: #ededed;
+  background: ${props => props.theme.backgrounds[1]};
   padding-bottom: 10px;
   padding-top: 10px;
   text-align: center;
@@ -13,7 +13,7 @@ const Title = styled.div`
 `
 
 const Status = styled.div`
-  color: blue;
+  color: ${props => props.theme.highlights[0]};;
 `;
 
 export default ({ title = '' }) => (
