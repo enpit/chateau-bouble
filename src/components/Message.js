@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+
 import Bubble from './Bubble';
 
 const ForeignMessage = styled.div`
@@ -12,7 +13,7 @@ const OwnMessage = styled(ForeignMessage)`
   float: right;
 `;
 
-var Time = styled.span`
+const Time = styled.span`
   color: ${props => props.theme.text[3]};
   display: block;
   font-size: 0.75em;
@@ -21,22 +22,29 @@ var Time = styled.span`
   margin-bottom: 0.25em;
 `;
 
-const message = function ({author, text, time, isOwnMessage}) {
+class message extends React.Component {
 
-  var Message;
-
-  if (isOwnMessage) {
-    Message = OwnMessage;
-  } else {
-    Message = ForeignMessage;
+  shouldComponentUpdate (nextProps) {
+    return this.props.text === nextProps.text;
   }
 
-  return (
-    <Message>
-      <Time>{time}</Time>
-      <Bubble author={author} text={text} isOwnMessage={isOwnMessage}/>
-    </Message>
-  );
+  render () {
+    const {author, text, time, isOwnMessage} = this.props;
+    let StyledMessage;
+
+    if (isOwnMessage) {
+      StyledMessage = OwnMessage;
+    } else {
+      StyledMessage = ForeignMessage;
+    }
+
+    return (
+      <StyledMessage>
+        <Time>{time}</Time>
+        <Bubble author={author} text={text} isOwnMessage={isOwnMessage}/>
+      </StyledMessage>
+    );
+  }
 };
 
 export default message;
