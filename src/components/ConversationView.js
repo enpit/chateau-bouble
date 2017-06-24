@@ -14,7 +14,7 @@ const ConversationView = styled.ul`
 class conversationview extends React.Component {
 
   componentDidUpdate () {
-    this.el.scrollIntoView();
+    this.el.parentNode.scrollTop = this.el.parentNode.scrollTopMax;
   }
 
   render () {
@@ -23,15 +23,23 @@ class conversationview extends React.Component {
 
     const bubbles = messages.map((message, index) => {
 
+      var bubbleli;
+
+      if (index === messages.length-1) {
+        bubbleli = <li key={index} ref={ (el) => {this.el = el;} }><Message author={message.author} text={message.text} time={message.time} isOwnMessage={message.author === user} /></li>;
+      } else {
+        bubbleli = <li key={index}><Message author={message.author} text={message.text} time={message.time} isOwnMessage={message.author === user} /></li>;
+      }
+
       return (
-          <li key={index}><Message author={message.author} text={message.text} time={message.time} isOwnMessage={message.author === user} /></li>
+          bubbleli
       );
 
     });
 
-    const dummyli = <li key={bubbles.length} ref={ (el) => {this.el = el;} }></li>;
+    //const dummyli = <li key={bubbles.length} ref={ (el) => {this.el = el;} }></li>;
 
-    bubbles.push(dummyli);
+    //bubbles.push(dummyli);
 
     return (
       <ConversationView>{bubbles}</ConversationView>
