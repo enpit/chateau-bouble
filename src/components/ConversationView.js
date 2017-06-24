@@ -7,11 +7,11 @@ const ConversationView = styled.ul`
     padding-top: 1em;
 `;
 
-const conversationview = function ({messages}) {
+const conversationview = function ({messages, user}) {
 
     const bubbles = messages.map((message, index) => {
         return (
-            <li key={index}><Message author={message.author} text={message.text} time={message.time}/></li>
+            <li key={index}><Message author={message.author} text={message.text} time={message.time} isOwnMessage={message.author === user}/></li>
         );
     });
 

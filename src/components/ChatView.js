@@ -14,8 +14,7 @@ const chatview = function ({messages, user}) {
 
     return (
         <ChatView>
-            <ConversationView messages={messages} />
-            <span>User: {user}</span>
+            <ConversationView messages={messages} user={user} />
         </ChatView>
     );
 };

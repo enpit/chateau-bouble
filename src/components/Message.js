@@ -2,11 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import Bubble from './Bubble';
 
-const Message = styled.div`
-  margin: 1em 0;
+var Message = styled.div`
+  margin: 0.5em 0;
+  max-width: 240px;
 `;
 
-const Time = styled.span`
+var Time = styled.span`
   color: #999;
   display: block;
   font-size: 0.75em;
@@ -15,14 +16,23 @@ const Time = styled.span`
   margin-bottom: 0.25em;
 `;
 
-const message = function ({author, text, time}) {
+const message = function ({author, text, time, isOwnMessage}) {
+
+  if (isOwnMessage) {
+    Message = styled(Message)`
+      float: right;
+    `;
+    Time = styled(Time)`
+
+    `;
+  }
 
   return (
     <Message>
       <Time>{time}</Time>
-      <Bubble author={author} text={text} />
+      <Bubble author={author} text={text} isOwnMessage={isOwnMessage}/>
     </Message>
   );
 };
 
-export default styled(message)`margin: 1em 0;`;
+export default message;
