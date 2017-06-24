@@ -22,11 +22,11 @@ class Demo extends Component {
   }
 
   render () {
-    return <div style={{
-        margin: '0 auto',
-        width: 480
-      }}>
-      <ChateauBuble messages={this.state.messages}
+      return <div style={{
+          margin: '0 auto',
+          width: 480
+        }}>
+        <ChateauBuble messages={this.state.messages}
                          onAddMessage={this.onAddMessage}
                          theme="default"
                          user={this.state.user}
