@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import moment from 'moment';
 
-import Bubble from './Bubble';
+import TextBubble from './TextBubble';
 import SenderImage from './SenderImage';
 
 const ForeignMessage = styled.div`
@@ -45,7 +45,7 @@ class message extends React.Component {
         <Time>{moment(time).format('h:mm a')}</Time>
         <div>
           { !isOwnMessage && <SenderImage author={author} />}
-          <Bubble author={author} text={text} isOwnMessage={isOwnMessage}/>
+          <TextBubble author={author} content={text} isOwnMessage={isOwnMessage}/>
         </div>
       </StyledMessage>
     );
