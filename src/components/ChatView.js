@@ -1,16 +1,10 @@
 import React, { Component } from 'react';
-import Bubble from './Bubble';
+import ConversationView from './ConversationView';
 
 const ChatView = function ({messages}) {
 
-    const bubbles = messages.map((message, index) => {
-        return (
-            <li><Bubble key={index} author={message.author} text={message.text} /></li>
-        );
-    });
-
     return (
-        <ul>{bubbles}</ul>
+        <ConversationView messages={messages} />
     );
 };
 
