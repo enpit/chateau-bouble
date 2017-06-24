@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 
-import ChatView from './components/ChatView';
+import Chat from './containers/Chat';
 import store from './store';
 
 class App extends Component {
@@ -9,7 +9,7 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <ChatView messages={[]} />
+        <Chat />
       </Provider>
     );
   }
