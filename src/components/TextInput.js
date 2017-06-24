@@ -4,6 +4,7 @@ import styled from 'styled-components';
 const TextView = styled.div`
   background-color: #ededed;
   clear: right;
+  height: calc(10% - 10px);
   padding: 5px;
   width: calc(100% - 10px);
 `;
@@ -11,11 +12,17 @@ const TextView = styled.div`
 const TextInputWrapper = styled.div`
   display: inline-block;
   margin-left: 10px;
+  position: relative;
+  top: 50%;
+  transform: translate(0, -50%);
   width: calc(90% - 10px);
 `;
 
 const TextSubmitWrapper = styled.div`
   display: inline-block;
+  position: relative;
+  top: 50%;
+  transform: translate(0, -50%);
   width: 10%;
 `;
 
