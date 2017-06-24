@@ -24,7 +24,12 @@ class conversationview extends React.Component {
     const bubbles = messages.map((message, index) => {
 
       return (
-          <li key={index}><Message author={message.author} text={message.text} time={message.time} isOwnMessage={message.author === user} /></li>
+        <li key={index}>
+          <Message author={message.author}
+            text={message.text}
+            time={message.time}
+            isOwnMessage={message.author.name === user.name} />
+        </li>
       );
 
     });
@@ -34,16 +39,7 @@ class conversationview extends React.Component {
     bubbles.push(dummyli);
 
     return (
-<<<<<<< HEAD
       <ConversationView>{bubbles}</ConversationView>
-=======
-      <li key={index}>
-        <Message author={message.author}
-          text={message.text}
-          time={message.time}
-          isOwnMessage={message.author.name === user.name} />
-      </li>
->>>>>>> author-extension
     );
 
   }
