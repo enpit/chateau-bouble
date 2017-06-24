@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ConversationView from './ConversationView';
 
 const ChatView = function ({messages, user}) {
