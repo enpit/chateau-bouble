@@ -13,7 +13,10 @@ const OwnBubble = styled(ForeignBubble)`
 `;
 
 const Text = styled.span`
+  display: inline-block;
   font-size: 14px;
+  max-width: 240px;
+  word-wrap: break-word;
 `;
 
 const ForeignAuthor = styled.span`
