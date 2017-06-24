@@ -10,6 +10,7 @@ const ForeignBubble = styled.div`
 
 const OwnBubble = styled(ForeignBubble)`
   background-color: ${props => props.theme.highlights[0]};
+  float: right;
 `;
 
 const Text = styled.span`
