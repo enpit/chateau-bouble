@@ -21,7 +21,7 @@ class Demo extends Component {
       ],
       chatStatus: 'online',
       chatTitle: 'enpit #reactriot',
-      user: 'Janis'
+      user: janis
     }
   }
 

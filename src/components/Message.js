@@ -44,7 +44,7 @@ class message extends React.Component {
       <StyledMessage>
         <Time>{moment(time).format('h:mm a')}</Time>
         <div>
-          <SenderImage author={author} />
+          { !isOwnMessage && <SenderImage author={author} />}
           <Bubble author={author} text={text} isOwnMessage={isOwnMessage}/>
         </div>
       </StyledMessage>

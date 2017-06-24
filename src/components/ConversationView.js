@@ -16,7 +16,7 @@ const conversationview = function({messages, user}) {
         <Message author={message.author}
           text={message.text}
           time={message.time}
-          isOwnMessage={message.author.name === user} />
+          isOwnMessage={message.author.name === user.name} />
       </li>
     );
   });
