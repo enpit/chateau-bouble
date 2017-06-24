@@ -22,7 +22,6 @@ class Demo extends Component {
   }
 
   render () {
-    setTimeout(() => this.onAddMessage({ author: 'Janis', text: '🐺'}), 3000);
     return <ChateauBuble messages={this.state.messages}
                          onAddMessage={(msg) => this.onAddMessage(msg)}
                          theme="default"

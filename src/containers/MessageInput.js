@@ -1,17 +1,25 @@
 import { connect } from 'react-redux';
 
-import { sendMessage } from '../actions/messages';
+import {
+  updateMessage,
+  sendMessage
+} from '../actions/messages';
 import TextInput from '../components/TextInput';
 
 const mapStateToProps = state => {
-  return {};
+  return { text: state.messages.current.text || '' };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
+    onUpdateMessage: (text) => {
+      const message = { author: ownProps.user, text };
+      dispatch(updateMessage(message));
+    },
     onSubmit: (text) => {
       const message = { author: ownProps.user, text };
       dispatch(sendMessage(message));
+      dispatch(updateMessage({}));
       ownProps.onAddMessage(message);
     }
   };

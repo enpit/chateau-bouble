@@ -1,12 +1,13 @@
 import {
-  CLEAR_MESSAGES,
   SEND_MESSAGE,
   SET_MESSAGES,
-  SET_USER
+  SET_USER,
+  UPDATE_MESSAGE
 } from '../actions/messages';
 
 const INITIAL_STATE = {
-  all: []
+  all: [],
+  current: {}
 };
 
 const messages = (state = INITIAL_STATE, action) => {
@@ -17,6 +18,8 @@ const messages = (state = INITIAL_STATE, action) => {
       return { ...state, all: action.messages };
     case SET_USER:
       return { ...state, user: action.user };
+    case UPDATE_MESSAGE:
+      return { ...state, current: action.message };
     default:
       return state;
   }

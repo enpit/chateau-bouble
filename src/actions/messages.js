@@ -1,7 +1,8 @@
-export const CLEAR_MESSAGES = 'CLEAR_MESSAGES';
+export const UPDATE_MESSAGE = 'UPDATE_MESSAGE';
 
-export const clearMessages = () => ({
-  type: CLEAR_MESSAGES
+export const updateMessage = (message) => ({
+  type: UPDATE_MESSAGE,
+  message
 });
 
 export const SET_MESSAGES = 'SET_MESSAGES';
