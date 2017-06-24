@@ -3,9 +3,9 @@ import Bubble from './Bubble';
 
 const ChatView = function ({messages}) {
 
-    const bubbles = messages.map((message) => {
+    const bubbles = messages.map((message, index) => {
         return (
-            <li><Bubble author={message.author} text={message.text} /></li>
+            <li><Bubble key={index} author={message.author} text={message.text} /></li>
         );
     });
 
