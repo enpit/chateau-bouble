@@ -5,7 +5,8 @@ import Chat from './containers/Chat';
 import store from './store';
 
 const ChateauBuble = ({
-  messages = []
+  messages = [],
+  user = ''
 }) => (
   <Provider store={store}>
     <Chat />

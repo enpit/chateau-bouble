@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import ConversationView from './ConversationView';
 
-const ChatView = function ({messages}) {
+const ChatView = function ({messages, user}) {
 
     return (
-        <ConversationView messages={messages} />
+        <div>
+            <ConversationView messages={messages} />
+            <span>User: {user}</span>
+        </div>
     );
 };
 

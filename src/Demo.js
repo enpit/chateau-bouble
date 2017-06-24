@@ -10,7 +10,8 @@ class Demo extends Component {
       messages: [
         { author: 'Janis', text: '🏰' },
         { author: 'Peter', text: '🗯' }
-      ]
+      ],
+      user: 'Janis'
     }
   }
 
@@ -21,7 +22,8 @@ class Demo extends Component {
 
   render () {
     return <ChateauBuble messages={this.state.messages}
-                         onAddMessage={this.onAddMessage} />
+                         onAddMessage={this.onAddMessage}
+                         user={this.state.user} />
   }
 }
 
