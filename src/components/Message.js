@@ -2,7 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import moment from 'moment';
 
-import Bubble from './Bubble';
+import ImageBubble from './ImageBubble';
+import TextBubble from './TextBubble';
 import SenderImage from './SenderImage';
 
 const ForeignMessage = styled.div`
@@ -27,12 +28,12 @@ const Time = styled.span`
 class message extends React.Component {
 
   shouldComponentUpdate (nextProps) {
-    return this.props.text === nextProps.text;
+    return this.props.content === nextProps.content;
   }
 
   render () {
-    const {author, text, time, isOwnMessage} = this.props;
-    let StyledMessage;
+    const {author, content, time, type, isOwnMessage} = this.props;
+    let Bubble, StyledMessage;
 
     if (isOwnMessage) {
       StyledMessage = OwnMessage;
@@ -40,12 +41,20 @@ class message extends React.Component {
       StyledMessage = ForeignMessage;
     }
 
+    if (type === 'text') {
+      Bubble = TextBubble;
+    } else if (type === 'image'){
+      Bubble = ImageBubble;
+    } else {
+      Bubble = null;
+    }
+
     return (
       <StyledMessage>
         <Time>{moment(time).format('h:mm a')}</Time>
         <div>
           { !isOwnMessage && <SenderImage author={author} />}
-          <Bubble author={author} text={text} isOwnMessage={isOwnMessage}/>
+          <Bubble author={author} content={content} isOwnMessage={isOwnMessage}/>
         </div>
       </StyledMessage>
     );
