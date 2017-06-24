@@ -1,33 +1,43 @@
 import React from 'react';
 import styled from 'styled-components';
 
-var Bubble = styled.div`
+const ForeignBubble = styled.div`
   background-color: #e9ff70;
   border-radius: 10px;
   display: inline-block;
   padding: 5px 10px;
 `;
 
+const OwnBubble = styled(ForeignBubble)`
+  background-color: #70d6ff;
+`;
+
 const Text = styled.span`
   font-size: 14px;
 `;
 
-var Author = styled.span`
+const ForeignAuthor = styled.span`
   color: #8c9943;
   display: block;
   font-size: 0.75em;
   font-weight: bold;
 `;
 
+const OwnAuthor = styled(ForeignAuthor)`
+  display: none;
+`;
+
 const bubble = function ({author, text, isOwnMessage}) {
 
+  var Author,
+      Bubble;
+
   if (isOwnMessage) {
-    Bubble = styled(Bubble)`
-      background-color: #70d6ff;
-    `;
-    Author = styled(Author)`
-      display: none;
-    `;
+    Bubble = OwnBubble;
+    Author = OwnAuthor;
+  } else {
+    Bubble = ForeignBubble;
+    Author = ForeignAuthor;
   }
 
   return (
