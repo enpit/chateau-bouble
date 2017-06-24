@@ -1,15 +1,23 @@
-import css from '../styles/index.css';
+//import css from '../styles/index.css';
 import React from 'react';
 import ConversationView from './ConversationView';
+import styled from 'styled-components';
 
-const ChatView = function ({messages, user}) {
+const ChatView = styled.div`
+    background-color: white;
+    font-family: "Helvetica Neue", Arial, Verdana, sans-serif;
+    font-size: 14px;
+    width: 100%
+`;
+
+const chatview = function ({messages, user}) {
 
     return (
-        <div className="chat-view">
+        <ChatView>
             <ConversationView messages={messages} />
             <span>User: {user}</span>
-        </div>
+        </ChatView>
     );
 };
 
-export default ChatView;
+export default chatview;

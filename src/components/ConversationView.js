@@ -1,17 +1,23 @@
 import React from 'react';
-import Bubble from './Bubble';
+import Message from './Message';
+import styled from 'styled-components';
 
-const ChatView = function ({messages}) {
+const ConversationView = styled.ul`
+    list-style-type: none;
+    padding-top: 1em;
+`;
+
+const conversationview = function ({messages}) {
 
     const bubbles = messages.map((message, index) => {
         return (
-            <li key={index}><Bubble author={message.author} text={message.text} time={message.time}/></li>
+            <li key={index}><Message author={message.author} text={message.text} time={message.time}/></li>
         );
     });
 
     return (
-        <ul className="conversation-view">{bubbles}</ul>
+        <ConversationView>{bubbles}</ConversationView>
     );
 };
 
-export default ChatView;
+export default conversationview;
