@@ -15,13 +15,16 @@ class Demo extends Component {
   }
 
   onAddMessage (msg) {
-    this.setState((prevState, props) =>
-      ([...(prevState.messages), msg]));
+    this.setState((prevState, props) => {
+      return { messages: ([...(prevState.messages), msg])}
+    });
   }
 
   render () {
     return <ChateauBuble messages={this.state.messages}
-                         onAddMessage={this.onAddMessage} />
+                         onAddMessage={this.onAddMessage}
+                         theme="default"
+                         user="Peter" />
   }
 }
 
