@@ -10,6 +10,10 @@ const Text = styled.span`
   max-width: calc(0.7 * ${props => props.theme.dimensions.width});
   text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.5);
   word-wrap: break-word;
+
+  p {
+      margin: 0;
+  }
 `;
 
 const TextBubble = GenericBubble(
