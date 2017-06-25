@@ -74,7 +74,7 @@ class TextInput extends React.Component {
         </TextInputWrapper>
         <ImageSelect size={32} onSubmit={onSubmitImage} />
         <TextSubmitWrapper>
-          <TextSubmitButton onClick={() => onSubmitText(content)}>></TextSubmitButton>
+          <TextSubmitButton onClick={() => content !== '' && onSubmitText(content)}>></TextSubmitButton>
         </TextSubmitWrapper>
       </TextView>
     );
