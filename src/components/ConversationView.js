@@ -7,7 +7,8 @@ const ConversationView = styled.ul`
   list-style-type: none;
   margin: 0;
   overflow-y: scroll;
-  padding-left: 0;
+  padding-left: 3px;
+  padding-right: 3px;
   padding-top: 1em;
   scroll-behavior: smooth;
   background: ${props => props.theme.ConversationView.background};
