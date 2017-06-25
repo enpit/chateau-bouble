@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import FontAwesome from 'react-fontawesome';
 
 import ImageSelect from './ImageSelect';
 import VerticalCenteredDiv from './VerticalCenteredDiv';
@@ -14,8 +15,9 @@ const TextView = styled.div`
 
 const TextInputWrapper = VerticalCenteredDiv.extend`
   display: inline-block;
-  margin-left: 10px;
-  width: calc(90% - 10px);
+  padding: 0 1%;
+  text-align: center;
+  width: 78%;
 `;
 
 const TextSubmitWrapper = VerticalCenteredDiv.extend`
@@ -28,13 +30,18 @@ const TextInputArea = styled.input`
     color: #b2b2b2;
   }
   &:focus {
+    border: 1px solid ${props => props.theme.highlights[0]};
     outline: none;
+  }
+  &:hover {
+    border: 1px solid white;
   }
   border: 1px solid #b2b2b2;
   border-radius: 15px;
   font-size: 14px;
   padding: 5px 10px;
-  width: calc(100% - 22px - 32px);
+  transition: border 1s;
+  width: calc(100% - 22px);
 `;
 
 const TextSubmitButton = styled.span`
@@ -43,11 +50,28 @@ const TextSubmitButton = styled.span`
   color: white;
   display: block;
   font-weight: bold;
-  height: 24px;
+  height: 23px;
   margin: 0 auto;
-  padding-top: 4px;
+  padding-right: 2px;
+  padding-top: 5px;
   text-align: center;
-  width: 28px;
+  width: 26px;
+
+  &:hover {
+    background-color: ${props => props.theme.highlights[2]};
+    cursor: pointer;
+  }
+
+  transition: background-color 1s;
+`;
+
+const ImageSelectWrapper = VerticalCenteredDiv.extend`
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  top: 50%;
+  transform: translate(0, -50%);
+  width: 10%;
 `;
 
 class TextInput extends React.Component {
@@ -57,8 +81,12 @@ class TextInput extends React.Component {
 
   render () {
     const {content, onSubmitImage, onSubmitText, onUpdateMessage} = this.props;
+    
     return (
       <TextView>
+        <ImageSelectWrapper>
+          <ImageSelect onSubmit={onSubmitImage} />
+        </ImageSelectWrapper>
         <TextInputWrapper>
           <TextInputArea type="text"
             innerRef={(comp) => { this.input = comp }}
@@ -72,9 +100,10 @@ class TextInput extends React.Component {
             placeholder="type here"
           />
         </TextInputWrapper>
-        <ImageSelect size={32} onSubmit={onSubmitImage} />
         <TextSubmitWrapper>
-          <TextSubmitButton onClick={() => content !== '' && onSubmitText(content)}>></TextSubmitButton>
+          <TextSubmitButton onClick={() => content !== '' && onSubmitText(content)}>
+            <FontAwesome name="paper-plane" />
+          </TextSubmitButton>
         </TextSubmitWrapper>
       </TextView>
     );

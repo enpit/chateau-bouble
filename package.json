@@ -6,6 +6,7 @@
     "moment": "^2.18.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
+    "react-fontawesome": "^1.6.1",
     "react-redux": "^5.0.5",
     "redux": "^3.7.0",
     "styled-components": "^2.1.0"

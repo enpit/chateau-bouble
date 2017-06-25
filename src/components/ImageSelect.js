@@ -1,8 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
+import FontAwesome from 'react-fontawesome';
 
-import imageLogo from '../image.png';
-import VerticalCenteredDiv from './VerticalCenteredDiv';
+const ImageLogo = styled(FontAwesome)`
+  color: ${props => props.theme.text[3]};
+  font-size: 22px;
+
+  &:hover {
+    color: ${props => props.theme.highlights[2]};
+    cursor: pointer;
+  }
+
+  transition: color 1s;
+`;
 
 const InvisibleInput = styled.input`
   display: none;
@@ -21,26 +31,14 @@ const handleImageChange = (e, callback) => {
   reader.readAsDataURL(file);
 }
 
-const ImageSelect = ({author = {}, onSubmit, size = 32}) => {
-
-  const Logo = styled.img`
-    height: ${size}px;
-    width: ${size}px;
-  `;
-
-  const Container = VerticalCenteredDiv.extend`
-    display: inline-block;
-    width: ${size}px;
-  `;
+const ImageSelect = ({author = {}, onSubmit}) => {
 
   return (
-    <Container>
-      <label htmlFor="file-upload">
-        <Logo src={imageLogo} width="32" height="32" />
-        <InvisibleInput type="file" id="file-upload"
-          onChange={(e)=> handleImageChange(e, onSubmit)} />
-      </label>
-    </Container>
+    <label htmlFor="file-upload">
+      <ImageLogo name="image" />
+      <InvisibleInput type="file" id="file-upload"
+        onChange={(e)=> handleImageChange(e, onSubmit)} />
+    </label>
   );
 };
 
