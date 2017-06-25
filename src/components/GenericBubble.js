@@ -18,6 +18,8 @@ const ForeignBubble = styled.div`
   box-shadow: ${props => props.theme.ForeignBubble.boxShadow};
   display: inline-block;
   padding: 5px 10px 7px 10px;
+  transition: background-color 1s;
+  transition: box-shadow 1s;
 `;
 
 const OwnBubble = ForeignBubble.extend`

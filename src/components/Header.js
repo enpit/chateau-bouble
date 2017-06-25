@@ -8,6 +8,8 @@ const StyledHeader = styled.header`
   background: ${props => props.theme.Header.background};
   border-bottom: ${props => props.theme.Header.borderBottom};
   height: calc(10% - 1px);
+  transition: background 1s;
+  transition: border-bottom 1s;
   width: 100%;
 `;
 
@@ -35,6 +37,7 @@ const Title = styled.div`
 const Status = styled.div`
   color: ${props => props.theme.Status.color};
   font-weight: bold;
+  transition: color 1s;
 `;
 
 const Image = styled.img`
