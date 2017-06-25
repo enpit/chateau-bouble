@@ -46,7 +46,7 @@ class Demo extends Component {
   render () {
       return <div style={{
           margin: '0 auto',
-          width: 480
+          width: 720
         }}>
         <ChateauBuble chatStatus={this.state.chatStatus}
                       chatTitle={this.state.chatTitle}
@@ -54,6 +54,7 @@ class Demo extends Component {
                       onAddMessage={(msg) => this.onAddMessage(msg)}
                       theme={this.state.theme}
                       user={this.state.user}
+                      dimensions={{ width: 720, height: 480 }}
                       />
           <ButtonSwitcher>
             <span>Switch Themes:</span>

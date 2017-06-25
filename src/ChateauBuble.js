@@ -47,12 +47,13 @@ class ChateauBuble extends Component {
       user: props.user,
     }));
     this.store.dispatch(setTheme(props.theme || 'chateauBuble'));
+
   }
 
   render () {
     return (
       <Provider store={this.store}>
-        <Chat onAddMessage={this.props.onAddMessage} />
+        <Chat onAddMessage={this.props.onAddMessage} dimensions={this.props.dimensions}/>
       </Provider>
     )
   }

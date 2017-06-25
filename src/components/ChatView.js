@@ -10,13 +10,13 @@ const ChatView = styled.div `
     background-color: ${props => props.theme.ChatView.background};
     font-family: "Helvetica Neue", Arial, Verdana, sans-serif;
     font-size: 14px;
-    height: ${props => props.theme.dimensions.height}; 
-    width: ${props => props.theme.dimensions.width};
+    height: ${props => props.dimensions.height}px;
+    width: ${props => props.dimensions.width}px;
 `;
 
-export default ({messages, onAddMessage, theme, user}) => (
+export default ({dimensions, messages, onAddMessage, theme, user}) => (
   <ThemeProvider theme={theme}>
-    <ChatView>
+    <ChatView dimensions={dimensions}>
       <Header />
       <ConversationView messages={messages} user={user}/>
       <MessageInput onAddMessage={onAddMessage} user={user}/>

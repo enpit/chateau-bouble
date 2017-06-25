@@ -2,11 +2,12 @@ import { connect } from 'react-redux';
 
 import ChatView from '../components/ChatView';
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
   return {
     messages: state.messages.all,
     user: state.messages.user,
-    theme: state.themes.current
+    theme: state.themes.current,
+    dimensions: ownProps.dimensions
   };
 };
 
