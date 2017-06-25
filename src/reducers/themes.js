@@ -148,6 +148,25 @@ THEMES.nature = Object.assign({}, THEMES.default, {
   }
 });
 
+THEMES.blue = Object.assign({}, THEMES.default, {
+  ConversationView: {
+    background: 'url("https://s-media-cache-ak0.pinimg.com/736x/a6/22/50/a62250e0b8576e94f8082cde346ad8a7--blue-iphone-wallpaper-colorful-wallpaper.jpg")',
+    backgroundSize: 'cover'
+  },
+  ImageBubble: {
+    boxShadow: '0px 0px 5px black'
+  },
+  Header: {
+    background: '#c4dfef'
+  },
+  Status: {
+    color: '#059dfc'
+  },
+  TextView: {
+    backgroundColor: '#c4dfef'
+  }
+});
+
 const themes = (state = THEMES, action) => {
   if (action.type === SET_THEME) {
     return { current: THEMES[action.name] || THEMES.green };
