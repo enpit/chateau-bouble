@@ -15,13 +15,20 @@ const OwnBubble = styled(ForeignBubble)`
   float: right;
 `;
 
-const GenericBubble = (Message) => {
+const GenericBubble = (Message, BubbleAttributes) => {
   return ({author, content, isOwnMessage}) => {
     let Bubble;
+
     if (isOwnMessage) {
       Bubble = OwnBubble;
     } else {
       Bubble = ForeignBubble;
+    }
+    
+    if (typeof BubbleAttributes === 'function') {
+      Bubble = Bubble.extend`
+       ${BubbleAttributes({content})}
+      `;
     }
 
     return (
