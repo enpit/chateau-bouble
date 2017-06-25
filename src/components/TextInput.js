@@ -1,6 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import ImageSelect from './ImageSelect';
+import VerticalCenteredDiv from './VerticalCenteredDiv';
+
 const TextView = styled.div`
   background-color: #ededed;
   clear: right;
@@ -9,20 +12,14 @@ const TextView = styled.div`
   width: calc(100% - 10px);
 `;
 
-const TextInputWrapper = styled.div`
+const TextInputWrapper = VerticalCenteredDiv.extend`
   display: inline-block;
   margin-left: 10px;
-  position: relative;
-  top: 50%;
-  transform: translate(0, -50%);
   width: calc(90% - 10px);
 `;
 
-const TextSubmitWrapper = styled.div`
+const TextSubmitWrapper = VerticalCenteredDiv.extend`
   display: inline-block;
-  position: relative;
-  top: 50%;
-  transform: translate(0, -50%);
   width: 10%;
 `;
 
@@ -37,7 +34,7 @@ const TextInputArea = styled.input`
   border-radius: 15px;
   font-size: 14px;
   padding: 5px 10px;
-  width: calc(100% - 22px);
+  width: calc(100% - 22px - 32px);
 `;
 
 const TextSubmitButton = styled.span`
@@ -59,7 +56,7 @@ class TextInput extends React.Component {
   }
 
   render () {
-    const {content, onSubmit, onUpdateMessage} = this.props;
+    const {content, onSubmitImage, onSubmitText, onUpdateMessage} = this.props;
     return (
       <TextView>
         <TextInputWrapper>
@@ -69,14 +66,15 @@ class TextInput extends React.Component {
             onChange={(event) => onUpdateMessage(event.target.value)}
             onKeyUp={(event) => {
               if (event.keyCode === 13 && content !== '') {
-                onSubmit(content);
+                onSubmitText(content);
               }
             }}
             placeholder="type here"
           />
         </TextInputWrapper>
+        <ImageSelect size={32} onSubmit={onSubmitImage} />
         <TextSubmitWrapper>
-          <TextSubmitButton onClick={() => onSubmit(content)}>></TextSubmitButton>
+          <TextSubmitButton onClick={() => onSubmitText(content)}>></TextSubmitButton>
         </TextSubmitWrapper>
       </TextView>
     );
