@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
-import styles from './font-awesome-4.7.0/css/font-awesome.min.css';
 
 import Chat from './containers/Chat';
 import configureStore from './store';
