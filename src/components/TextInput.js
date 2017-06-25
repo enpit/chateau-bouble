@@ -30,6 +30,9 @@ const TextInputArea = styled.input`
   &::placeholder {
     color: #b2b2b2;
   }
+  &:focus {
+    outline: none;
+  }
   border: 1px solid #b2b2b2;
   border-radius: 15px;
   font-size: 14px;
