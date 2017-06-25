@@ -82,7 +82,9 @@ const THEMES = {
 
 THEMES.classic = Object.assign({}, THEMES.default, {
   Header: {
-    background: '#ededed'
+    background: '#ededed',
+    borderBottom: '1px solid #ededed',
+    color: '#000'
   },
   ForeignBubble: {
     backgroundColor: '#e9ff70',
@@ -92,23 +94,25 @@ THEMES.classic = Object.assign({}, THEMES.default, {
     color: '#8c9943'
   },
   TextInput: {
-    background: '#ededed'
+    background: '#ededed',
+    borderTop: '1px solid #ededed'
   },
   TextInputArea: {
-      border: '1px solid #b2b2b2',
-      placeholder: {
-        color: '#b2b2b2'
-      },
-      hover: {
-        border: '1px solid #b2b2b2'
-      },
-      focus: {
-        border: '1px solid #70d6ff'
-      }
+    border: '1px solid #b2b2b2',
+    placeholder: {
+      color: '#b2b2b2'
     },
-    TextView: {
-      backgroundColor: '#ededed'
+    hover: {
+      border: '1px solid #b2b2b2'
+    },
+    focus: {
+      border: '1px solid #70d6ff'
     }
+  },
+  TextView: {
+    backgroundColor: '#ededed',
+    borderTop: '1px solid #ededed'
+  }
 });
 
 THEMES.green = Object.assign({}, THEMES.classic, {
