@@ -42,6 +42,7 @@ const TextInputArea = styled(TextArea)`
   border-radius: 15px;
   font-size: 14px;
   padding: 5px 10px;
+  resize: none;
   transition: border 1s;
   width: calc(100% - 22px);
   max-width: calc(100% - 22px);
