@@ -61,5 +61,4 @@ const Header = ({ title = '', status = '', user = {}}) => (
   </StyledHeader>
 );
 
-
 export default connect(mapStateToProps)(Header);
