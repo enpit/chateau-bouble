@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
 import './demo.css';
+import cat1 from './assets/cat1.png';
+import cat2 from './assets/cat2.png';
 
 import ChateauBuble from './ChateauBuble';
 
@@ -40,7 +42,7 @@ const botMessages = [
     type: 'image',
     content: {
       alt: 'cats are awesome',
-      url: 'http://rcysl.com/wp-content/uploads/2017/01/Cute-Cat-Pics-1920x1080.jpg'
+      url: cat2
     },
     time: 1498326118910
   }
@@ -77,7 +79,7 @@ class Demo extends Component {
           type: 'image',
           content: {
             alt: 'cats are awesome',
-            url: 'http://www.ragamuffinkittens.org/breeders/ragamuffinkittens005002.jpg'
+            url: cat1
           },
           time: 1498329958910
         }
