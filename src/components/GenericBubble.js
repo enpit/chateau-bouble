@@ -15,7 +15,7 @@ const fadeIn = keyframes`
 const ForeignBubble = styled.div`
   background-color: ${props => props.theme.highlights[1]};
   border-radius: 10px;
-  box-shadow: -1px 1px 0px ${props => props.theme.text[1]};
+  /*box-shadow: -1px 1px 0px ${props => props.theme.text[1]};*/
   display: inline-block;
   padding: 5px 10px 7px 10px;
 `;

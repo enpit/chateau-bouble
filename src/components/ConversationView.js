@@ -9,6 +9,11 @@ const ConversationView = styled.ul`
   overflow-y: scroll;
   padding-left: 0;
   padding-top: 1em;
+  scroll-behavior: smooth;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 class conversationview extends React.Component {
