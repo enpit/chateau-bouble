@@ -4,7 +4,9 @@ import FontAwesome from 'react-fontawesome';
 
 const ImageLogo = styled(FontAwesome)`
   color: ${props => props.theme.ImageSelectLogo.color};
-  font-size: 22px;
+  font-size: 24px;
+
+  line-height: 16px;
 
   &:hover {
     color: ${props => props.theme.ImageSelectLogo.hover.color};

@@ -4,26 +4,30 @@ import FontAwesome from 'react-fontawesome';
 import TextArea from 'react-autosize-textarea';
 
 import ImageSelect from './ImageSelect';
-import VerticalCenteredDiv from './VerticalCenteredDiv';
 
 const TextView = styled.div`
   background-color: ${props => props.theme.TextView.backgroundColor};
   border-top: ${props => props.theme.TextView.borderTop};
   clear: right;
+  display: block;
   height: calc(10% - 11px);
   padding: 5px;
   width: calc(100% - 10px);
 `;
 
-const TextInputWrapper = VerticalCenteredDiv.extend`
+const TextInputWrapper = styled.div`
   display: inline-block;
   padding: 0 1%;
   text-align: center;
+  vertical-align: middle;
   width: 78%;
 `;
 
-const TextSubmitWrapper = VerticalCenteredDiv.extend`
+const TextSubmitWrapper = styled.div`
   display: inline-block;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  vertical-align: middle;
   width: 10%;
 `;
 
@@ -41,7 +45,8 @@ const TextInputArea = styled(TextArea)`
   border: ${props => props.theme.TextInputArea.border};
   border-radius: 15px;
   font-size: 14px;
-  padding: 5px 10px;
+  margin: 0;
+  padding: 6px 10px;
   resize: none;
   transition: border 1s;
   width: calc(100% - 22px);
@@ -51,16 +56,16 @@ const TextInputArea = styled(TextArea)`
 
 const TextSubmitButton = styled.span`
   background-color: ${props => props.theme.TextSubmitButton.backgroundColor};
-  border-radius: 14px;
+  border-radius: 16px;
   color: white;
   display: block;
   font-weight: bold;
-  height: 23px;
+  height: 25px;
   margin: 0 auto;
   padding-right: 2px;
-  padding-top: 5px;
+  padding-top: 7px;
   text-align: center;
-  width: 26px;
+  width: 30px;
 
   &:hover {
     background-color: ${props => props.theme.TextSubmitButton.hover.backgroundColor};
@@ -70,12 +75,12 @@ const TextSubmitButton = styled.span`
   transition: background-color 1s;
 `;
 
-const ImageSelectWrapper = VerticalCenteredDiv.extend`
+const ImageSelectWrapper = styled.div`
   display: inline-block;
-  position: relative;
+  padding-top: 8px;
+  padding-bottom: 8px;
   text-align: center;
-  top: 50%;
-  transform: translate(0, -50%);
+  vertical-align: middle;
   width: 10%;
 `;
 

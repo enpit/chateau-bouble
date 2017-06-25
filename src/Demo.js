@@ -54,7 +54,7 @@ class Demo extends Component {
                       onAddMessage={(msg) => this.onAddMessage(msg)}
                       theme={this.state.theme}
                       user={this.state.user}
-                      dimensions={{ width: 720, height: 480 }}
+                      dimensions={{ width: 420, height: 480 }}
                       />
           <ButtonSwitcher>
             <span>Switch Themes:</span>
