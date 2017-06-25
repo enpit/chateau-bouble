@@ -42,7 +42,6 @@ class ChateauBuble extends Component {
       user: props.user,
     }));
     this.store.dispatch(setTheme(props.theme || 'chateauBuble'));
-
   }
 
   render () {
