@@ -20,8 +20,8 @@ class Demo extends Component {
       messages: [
         { author: peter, type: 'text', content: 'How\'s your hackathon going?', time: 1498326808910 },
         { author: janis, type: 'text', content: 'Awesome!', time: 1498327408910 },
-        { author: andreas, type: 'text', content: 'Good job', time: 1498329608910 },
-        { author: peter, type: 'text', content: 'thx', time: 1498329908910 },
+        { author: andreas, type: 'text', content: '**Good** job', time: 1498329608910 },
+        { author: peter, type: 'text', content: '`Hello World`', time: 1498329908910 },
         { author: peter, type: 'image', content: { alt: 'cats are awesome', url: 'http://www.ragamuffinkittens.org/breeders/ragamuffinkittens005002.jpg'}, time: 1498329958910 }
       ],
       chatStatus: 'online',

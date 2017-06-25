@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import FontAwesome from 'react-fontawesome';
 
+import EmojiPicker from './EmojiPicker';
 import ImageSelect from './ImageSelect';
 import VerticalCenteredDiv from './VerticalCenteredDiv';
 
@@ -17,7 +18,7 @@ const TextInputWrapper = VerticalCenteredDiv.extend`
   display: inline-block;
   padding: 0 1%;
   text-align: center;
-  width: 78%;
+  width: 68%;
 `;
 
 const TextSubmitWrapper = VerticalCenteredDiv.extend`
@@ -65,12 +66,14 @@ const TextSubmitButton = styled.span`
   transition: background-color 1s;
 `;
 
+const EmojiPickerWrapper = VerticalCenteredDiv.extend`
+  display: inline-block;
+  width: 10%;
+`;
+
 const ImageSelectWrapper = VerticalCenteredDiv.extend`
   display: inline-block;
-  position: relative;
   text-align: center;
-  top: 50%;
-  transform: translate(0, -50%);
   width: 10%;
 `;
 
@@ -81,7 +84,7 @@ class TextInput extends React.Component {
 
   render () {
     const {content, onSubmitImage, onSubmitText, onUpdateMessage} = this.props;
-    
+
     return (
       <TextView>
         <ImageSelectWrapper>
@@ -100,6 +103,9 @@ class TextInput extends React.Component {
             placeholder="type here"
           />
         </TextInputWrapper>
+        <EmojiPickerWrapper>
+          <EmojiPicker />
+        </EmojiPickerWrapper>
         <TextSubmitWrapper>
           <TextSubmitButton onClick={() => content !== '' && onSubmitText(content)}>
             <FontAwesome name="paper-plane" />
