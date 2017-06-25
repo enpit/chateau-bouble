@@ -142,13 +142,32 @@ THEMES.green = Object.assign({}, THEMES.classic, {
   }
 });
 
-THEMES.nature = Object.assign({}, THEMES.default, {
+THEMES.nature = Object.assign({}, THEMES.green, {
   ConversationView: {
     background: 'url("https://4.bp.blogspot.com/-esCc74oyDlg/WQd1e6ZjbgI/AAAAAAACLRo/EfzA4-DQNq03hKYHLUX-AO2dP-7KI9KXQCPcB/s0/Natural_Landscape_Alberta_Canada_img.jpg")',
     backgroundSize: 'cover'
   },
   ImageBubble: {
     boxShadow: '0px 0px 5px black'
+  }
+});
+
+THEMES.blue = Object.assign({}, THEMES.default, {
+  ConversationView: {
+    background: 'url("https://s-media-cache-ak0.pinimg.com/736x/a6/22/50/a62250e0b8576e94f8082cde346ad8a7--blue-iphone-wallpaper-colorful-wallpaper.jpg")',
+    backgroundSize: 'cover'
+  },
+  ImageBubble: {
+    boxShadow: '0px 0px 5px black'
+  },
+  Header: {
+    background: '#c4dfef'
+  },
+  Status: {
+    color: '#059dfc'
+  },
+  TextView: {
+    backgroundColor: '#c4dfef'
   }
 });
 

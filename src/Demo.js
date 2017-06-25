@@ -156,8 +156,7 @@ class Demo extends Component {
         <ButtonSwitcher>
           <span>Switch Themes:</span>
           <button onClick={() => this.switchTheme('default')}>Default</button>
-          <button onClick={() => this.switchTheme('classic')}>Classic</button>
-          <button onClick={() => this.switchTheme('green')}>Green</button>
+          <button onClick={() => this.switchTheme('blue')}>Blue</button>
           <button onClick={() => this.switchTheme('nature')}>Nature</button>
         </ButtonSwitcher>
         <label>
