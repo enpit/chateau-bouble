@@ -24,6 +24,7 @@ const andreas = {
 
 const ButtonSwitcher = styled.div `
   margin-top: 50px;
+  
 `;
 
 const botMessages = [
@@ -144,7 +145,7 @@ class Demo extends Component {
 
   render() {
     return (
-      <div>
+      <div id="demo">
         <div style={{
           margin: '0 auto',
           width: 420,
