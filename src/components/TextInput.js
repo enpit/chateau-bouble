@@ -89,6 +89,8 @@ const ImageSelectWrapper = styled.div`
 const EmojiPickerWrapper = styled.div`
   display: inline-block;
   left: -8%;
+  position: relative;
+  vertical-align: middle;
   width: 0;
 `;
 
