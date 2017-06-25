@@ -53,7 +53,7 @@ class TextInput extends React.Component {
   }
 
   render () {
-    const {content, onSubmit, onUpdateMessage} = this.props;
+    const {content, onSubmitImage, onSubmitText, onUpdateMessage} = this.props;
     return (
       <TextView>
         <TextInputWrapper>
@@ -63,15 +63,15 @@ class TextInput extends React.Component {
             onChange={(event) => onUpdateMessage(event.target.value)}
             onKeyUp={(event) => {
               if (event.keyCode === 13 && content !== '') {
-                onSubmit(content);
+                onSubmitText(content);
               }
             }}
             placeholder="type here"
           />
         </TextInputWrapper>
-        <ImageSelect size={32} />
+        <ImageSelect size={32} onSubmit={onSubmitImage} />
         <TextSubmitWrapper>
-          <TextSubmitButton onClick={() => onSubmit(content)}>></TextSubmitButton>
+          <TextSubmitButton onClick={() => onSubmitText(content)}>></TextSubmitButton>
         </TextSubmitWrapper>
       </TextView>
     );

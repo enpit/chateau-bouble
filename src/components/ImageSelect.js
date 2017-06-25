@@ -8,20 +8,20 @@ const InvisibleInput = styled.input`
   display: none;
 `;
 
-const _handleImageChange = (e) => {
+const handleImageChange = (e, callback) => {
   e.preventDefault();
 
   let reader = new FileReader();
   let file = e.target.files[0];
 
   reader.onloadend = () => {
-    console.log(reader.result);
+    callback(reader.result);
   }
 
-  reader.readAsDataURL(file)
+  reader.readAsDataURL(file);
 }
 
-const ImageSelect = ({author = {}, size = 32}) => {
+const ImageSelect = ({author = {}, onSubmit, size = 32}) => {
 
   const Logo = styled.img`
     height: ${size}px;
@@ -38,7 +38,7 @@ const ImageSelect = ({author = {}, size = 32}) => {
       <label htmlFor="file-upload">
         <Logo src={imageLogo} width="32" height="32" />
         <InvisibleInput type="file" id="file-upload"
-          onChange={(e)=>_handleImageChange(e)} />
+          onChange={(e)=> handleImageChange(e, onSubmit)} />
       </label>
     </Container>
   );

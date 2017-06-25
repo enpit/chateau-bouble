@@ -10,7 +10,10 @@ const createMessage = (user, content, type) =>
   ({ author: user, content, time: (new Date()).getTime(), type })
 
 const mapStateToProps = state => {
-  return { content: state.messages.current.content || '' };
+  return {
+    content: state.messages.current.content || '',
+    user: state.messages.user
+  };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
@@ -19,10 +22,16 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       const message = createMessage(ownProps.user, text, 'text');
       dispatch(updateMessage(message));
     },
-    onSubmit: (text) => {
+    onSubmitText: (text) => {
       const message = createMessage(ownProps.user, text, 'text');
       dispatch(sendMessage(message));
       dispatch(updateMessage({}));
+      ownProps.onAddMessage(message);
+    },
+    onSubmitImage: (imageUrl) => {
+      const user = ownProps.user;
+      const message = createMessage(user, { alt: `Image uploaded by ${user.name}`, url: imageUrl}, 'image');
+      dispatch(sendMessage(message));
       ownProps.onAddMessage(message);
     }
   };
