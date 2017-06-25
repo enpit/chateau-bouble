@@ -8,7 +8,7 @@ import style from '../emoji-mart.css';
 const StyledPicker = styled(Picker)`
 `;
 
-const EmojiPicker = () => (
+const EmojiPicker = ({ onPickEmoji }) => (
   <div>
     <Tooltip
       placement="topRight"
@@ -16,7 +16,7 @@ const EmojiPicker = () => (
       mouseLeaveDelay={0.5}
       destroyTooltipOnHide={true}
       trigger={['hover']}
-      overlay={<StyledPicker />}
+      overlay={<StyledPicker onClick={onPickEmoji}/>}
     >
       <span>:)</span>
     </Tooltip>

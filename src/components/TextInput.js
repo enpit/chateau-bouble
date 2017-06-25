@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import FontAwesome from 'react-fontawesome';
 
-import EmojiPicker from './EmojiPicker';
+import EmojiPickInput from '../containers/EmojiPickInput';
 import ImageSelect from './ImageSelect';
 import VerticalCenteredDiv from './VerticalCenteredDiv';
 
@@ -104,7 +104,7 @@ class TextInput extends React.Component {
           />
         </TextInputWrapper>
         <EmojiPickerWrapper>
-          <EmojiPicker />
+          <EmojiPickInput content={content} />
         </EmojiPickerWrapper>
         <TextSubmitWrapper>
           <TextSubmitButton onClick={() => content !== '' && onSubmitText(content)}>
