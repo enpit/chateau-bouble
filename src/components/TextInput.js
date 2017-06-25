@@ -1,33 +1,38 @@
 import React from 'react';
 import styled from 'styled-components';
 import FontAwesome from 'react-fontawesome';
+import TextArea from 'react-autosize-textarea';
 
 import EmojiPickInput from '../containers/EmojiPickInput';
 import ImageSelect from './ImageSelect';
-import VerticalCenteredDiv from './VerticalCenteredDiv';
 
 const TextView = styled.div`
   background-color: ${props => props.theme.TextView.backgroundColor};
   border-top: ${props => props.theme.TextView.borderTop};
   clear: right;
+  display: block;
   height: calc(10% - 11px);
   padding: 5px;
   width: calc(100% - 10px);
 `;
 
-const TextInputWrapper = VerticalCenteredDiv.extend`
+const TextInputWrapper = styled.div`
   display: inline-block;
   padding: 0 1%;
   text-align: center;
+  vertical-align: middle;
   width: 78%;
 `;
 
-const TextSubmitWrapper = VerticalCenteredDiv.extend`
+const TextSubmitWrapper = styled.div`
   display: inline-block;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  vertical-align: middle;
   width: 10%;
 `;
 
-const TextInputArea = styled.input`
+const TextInputArea = styled(TextArea)`
   &::placeholder {
     color: ${props => props.theme.TextInputArea.placeholder.color};
   }
@@ -42,23 +47,27 @@ const TextInputArea = styled.input`
   border-radius: 15px;
   font-family: ${props => props.theme.ChatView.fontFamily};
   font-size: 14px;
-  padding: 5px 10px;
+  margin: 0;
+  padding: 6px 10px;
+  resize: none;
   transition: border 1s;
   width: calc(100% - 22px);
+  max-width: calc(100% - 22px);
+  min-width: calc(100% - 22px);
 `;
 
 const TextSubmitButton = styled.span`
   background-color: ${props => props.theme.TextSubmitButton.backgroundColor};
-  border-radius: 14px;
+  border-radius: 16px;
   color: white;
   display: block;
   font-weight: bold;
-  height: 23px;
+  height: 25px;
   margin: 0 auto;
   padding-right: 2px;
-  padding-top: 5px;
+  padding-top: 7px;
   text-align: center;
-  width: 26px;
+  width: 30px;
 
   &:hover {
     background-color: ${props => props.theme.TextSubmitButton.hover.backgroundColor};
@@ -68,21 +77,26 @@ const TextSubmitButton = styled.span`
   transition: background-color 1s;
 `;
 
-const EmojiPickerWrapper = VerticalCenteredDiv.extend`
+const ImageSelectWrapper = styled.div`
   display: inline-block;
-  left: -8%;
-  width: 0;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  text-align: center;
+  vertical-align: middle;
+  width: 10%;
 `;
 
-const ImageSelectWrapper = VerticalCenteredDiv.extend`
+const EmojiPickerWrapper = styled.div`
   display: inline-block;
-  text-align: center;
-  width: 10%;
+  left: -8%;
+  position: relative;
+  vertical-align: middle;
+  width: 0;
 `;
 
 class TextInput extends React.Component {
   componentDidMount(){
-    this.input.focus();
+    console.log(this.input);
   }
 
   render () {
@@ -95,12 +109,16 @@ class TextInput extends React.Component {
         </ImageSelectWrapper>
         <TextInputWrapper>
           <TextInputArea type="text"
+            maxRows={3}
             innerRef={(comp) => { this.input = comp }}
             value={content}
             onChange={(event) => onUpdateMessage(event.target.value)}
-            onKeyUp={(event) => {
-              if (event.keyCode === 13 && content !== '') {
-                onSubmitText(content);
+            onKeyDown={(event) => {
+              if (event.keyCode === 13) {
+                event.preventDefault();
+                if (content !== '') {
+                  onSubmitText(content);
+                }
               }
             }}
             placeholder="type here"
