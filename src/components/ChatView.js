@@ -11,7 +11,6 @@ const ChatView = styled.div `
     font-family: "Helvetica Neue", Arial, Verdana, sans-serif;
     font-size: 14px;
     height: ${props => props.theme.dimensions.height}; 
-    overflow-y: scroll;
     width: ${props => props.theme.dimensions.width};
 `;
 
