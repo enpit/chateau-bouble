@@ -97,9 +97,12 @@ class TextInput extends React.Component {
             innerRef={(comp) => { this.input = comp }}
             value={content}
             onChange={(event) => onUpdateMessage(event.target.value)}
-            onKeyUp={(event) => {
-              if (event.keyCode === 13 && content !== '') {
-                onSubmitText(content);
+            onKeyDown={(event) => {
+              if (event.keyCode === 13) {
+                event.preventDefault();
+                if (content !== '') {
+                  onSubmitText(content);
+                }
               }
             }}
             placeholder="type here"
