@@ -4,7 +4,9 @@ import styled from 'styled-components';
 const size = 32;
 const Image = styled.img`
   border-radius: ${size/2}px;
+  float: left;
   height: ${size}px;
+  margin-right: 7px;
   width: ${size}px;
 `;
 

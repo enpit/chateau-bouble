@@ -7,7 +7,7 @@ const ForeignBubble = styled.div`
   background-color: ${props => props.theme.highlights[1]};
   border-radius: 10px;
   display: inline-block;
-  padding: 7px 10px;
+  padding: 5px 10px 7px 10px;
 `;
 
 const OwnBubble = styled(ForeignBubble)`

@@ -21,7 +21,7 @@ const Time = styled.span`
   display: block;
   font-size: 0.75em;
   font-weight: bold;
-  padding-left: 10px;
+  padding-left: 49px;
   margin-bottom: 0.25em;
 `;
 
