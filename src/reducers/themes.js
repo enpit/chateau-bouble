@@ -138,7 +138,7 @@ THEMES.green = Object.assign({}, THEMES.classic, {
   }
 });
 
-THEMES.nature = Object.assign({}, THEMES.default, {
+THEMES.nature = Object.assign({}, THEMES.green, {
   ConversationView: {
     background: 'url("https://4.bp.blogspot.com/-esCc74oyDlg/WQd1e6ZjbgI/AAAAAAACLRo/EfzA4-DQNq03hKYHLUX-AO2dP-7KI9KXQCPcB/s0/Natural_Landscape_Alberta_Canada_img.jpg")',
     backgroundSize: 'cover'
