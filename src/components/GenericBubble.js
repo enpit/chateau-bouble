@@ -1,7 +1,16 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 import Author from './Author';
+
+const fadeIn = keyframes`
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+`;
 
 const ForeignBubble = styled.div`
   background-color: ${props => props.theme.highlights[1]};
@@ -11,33 +20,51 @@ const ForeignBubble = styled.div`
   padding: 5px 10px 7px 10px;
 `;
 
-const OwnBubble = styled(ForeignBubble)`
+const OwnBubble = ForeignBubble.extend`
   background-color: ${props => props.theme.highlights[0]};
   float: right;
 `;
 
 const GenericBubble = (Message, BubbleAttributes) => {
-  return ({author, content, isOwnMessage}) => {
-    let Bubble;
-
-    if (isOwnMessage) {
-      Bubble = OwnBubble;
-    } else {
-      Bubble = ForeignBubble;
-    }
-    
-    if (typeof BubbleAttributes === 'function') {
-      Bubble = Bubble.extend`
-       ${BubbleAttributes({content})}
-      `;
+  return class BubbleClass extends React.Component {
+    constructor (props) {
+      super(props);
+      this.animate = true;
     }
 
-    return (
-      <Bubble>
-        <Author author={author} isOwnMessage={isOwnMessage} />
-        <Message content={content} />
-      </Bubble>
-    );
+    componentDidMount () {
+      this.animate = false;
+    }
+
+    render () {
+      const {author, content, isOwnMessage} = this.props;
+      let Bubble;
+
+      if (isOwnMessage) {
+        Bubble = OwnBubble;
+      } else {
+        Bubble = ForeignBubble;
+      }
+
+      if (typeof BubbleAttributes === 'function') {
+        Bubble = Bubble.extend`
+         ${BubbleAttributes({content})}
+        `;
+      }
+
+      if (this.animate) {
+        Bubble = Bubble.extend`
+          animation: ${fadeIn} .25s linear;
+        `;
+      }
+
+      return (
+        <Bubble>
+          <Author author={author} isOwnMessage={isOwnMessage} />
+          <Message content={content} />
+        </Bubble>
+      );
+    }
   };
 }
 
