@@ -27,7 +27,7 @@ class Demo extends Component {
       chatStatus: 'online',
       chatTitle: 'enpit #reactriot',
       user: janis,
-      theme: 'chateauBuble'
+      theme: 'default'
     }
   }
 
@@ -57,7 +57,8 @@ class Demo extends Component {
                       />
           <ButtonSwitcher>
             <span>Switch Themes:</span>
-            <button onClick={() => this.switchTheme('chateauBuble')}>ChateauBuble</button>
+            <button onClick={() => this.switchTheme('default')}>Default</button>
+            <button onClick={() => this.switchTheme('classic')}>Classic</button>
             <button onClick={() => this.switchTheme('green')}>Green</button>
           </ButtonSwitcher>
         </div>

@@ -5,8 +5,9 @@ import styled from 'styled-components';
 const size = 32;
 
 const StyledHeader = styled.header`
-  background: ${props => props.theme.backgrounds[1]};
-  height: 10%;
+  background: ${props => props.theme.Header.background};
+  border-bottom: ${props => props.theme.Header.borderBottom};
+  height: calc(10% - 1px);
   width: 100%;
 `;
 
@@ -32,7 +33,7 @@ const Title = styled.div`
 `
 
 const Status = styled.div`
-  color: ${props => props.theme.highlights[2]};
+  color: ${props => props.theme.Status.color};
   font-weight: bold;
 `;
 

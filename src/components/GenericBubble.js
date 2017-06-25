@@ -13,15 +13,15 @@ const fadeIn = keyframes`
 `;
 
 const ForeignBubble = styled.div`
-  background-color: ${props => props.theme.highlights[1]};
+  background-color: ${props => props.theme.ForeignBubble.backgroundColor};
   border-radius: 10px;
-  /*box-shadow: -1px 1px 0px ${props => props.theme.text[1]};*/
+  box-shadow: ${props => props.theme.ForeignBubble.boxShadow};
   display: inline-block;
   padding: 5px 10px 7px 10px;
 `;
 
 const OwnBubble = ForeignBubble.extend`
-  background-color: ${props => props.theme.highlights[0]};
+  background-color: ${props => props.theme.OwnBubble.backgroundColor};
   float: right;
 `;
 

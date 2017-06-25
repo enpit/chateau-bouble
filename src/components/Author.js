@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 
 const ForeignAuthor = styled.span`
-  color: ${props => props.theme.text[2]};
+  color: ${props => props.theme.Author.color};
   display: block;
   font-size: 0.75em;
   font-weight: bold;
