@@ -5,7 +5,7 @@ import ImageSelect from './ImageSelect';
 import VerticalCenteredDiv from './VerticalCenteredDiv';
 
 const TextView = styled.div`
-  background-color: #ededed;
+  background-color: ${props => props.theme.backgrounds[1]};
   clear: right;
   height: calc(10% - 10px);
   padding: 5px;
@@ -25,12 +25,12 @@ const TextSubmitWrapper = VerticalCenteredDiv.extend`
 
 const TextInputArea = styled.input`
   &::placeholder {
-    color: #b2b2b2;
+    color: ${props => props.theme.text[1]};
   }
   &:focus {
     outline: none;
   }
-  border: 1px solid #b2b2b2;
+  border: 1px solid ${props => props.theme.text[1]};
   border-radius: 15px;
   font-size: 14px;
   padding: 5px 10px;
@@ -38,7 +38,7 @@ const TextInputArea = styled.input`
 `;
 
 const TextSubmitButton = styled.span`
-  background-color: #70d6ff;
+  background-color: ${props => props.theme.highlights[0]};
   border-radius: 14px;
   color: white;
   display: block;

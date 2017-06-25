@@ -40,7 +40,7 @@ class Demo extends Component {
                       chatTitle={this.state.chatTitle}
                       messages={this.state.messages}
                       onAddMessage={(msg) => this.onAddMessage(msg)}
-                      theme="default"
+                      theme="green"
                       user={this.state.user}
                       />
         </div>

@@ -1,9 +1,10 @@
+import { SET_THEME } from '../actions/themes';
+
 /*
 highlights: [OwnBubble, ForeignBubble, Status],
 text: [,,ForeignAuthor,]
  */
-
-const INITIAL_STATE = {
+const THEMES = {
   current: {
     backgrounds: ['#fff', '#ededed'],
     text: ['#000', '#b2b2b2', '#8c9943', '#999'],
@@ -33,6 +34,12 @@ const INITIAL_STATE = {
   }
 }
 
-const themes = (state = INITIAL_STATE, action) => state;
+const themes = (state = THEMES, action) => {
+  if (action.type === SET_THEME) {
+    return { current: THEMES[action.name] || THEMES.chateauBuble };
+  } else {
+    return state;
+  }
+};
 
 export default themes;
