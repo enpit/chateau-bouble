@@ -161,13 +161,16 @@ THEMES.blue = Object.assign({}, THEMES.default, {
     boxShadow: '0px 0px 5px black'
   },
   Header: {
-    background: '#c4dfef'
+    background: '#c4dfef',
+    borderBottom: '1px solid transparent',
+    color: '#000'
   },
   Status: {
     color: '#059dfc'
   },
   TextView: {
-    backgroundColor: '#c4dfef'
+    backgroundColor: '#c4dfef',
+    borderTop: '1px solid transparent'
   }
 });
 
