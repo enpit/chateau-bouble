@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import FontAwesome from 'react-fontawesome';
+import TextArea from 'react-autosize-textarea';
 
 import ImageSelect from './ImageSelect';
 import VerticalCenteredDiv from './VerticalCenteredDiv';
@@ -26,7 +27,7 @@ const TextSubmitWrapper = VerticalCenteredDiv.extend`
   width: 10%;
 `;
 
-const TextInputArea = styled.input`
+const TextInputArea = styled(TextArea)`
   &::placeholder {
     color: ${props => props.theme.TextInputArea.placeholder.color};
   }
@@ -43,6 +44,8 @@ const TextInputArea = styled.input`
   padding: 5px 10px;
   transition: border 1s;
   width: calc(100% - 22px);
+  max-width: calc(100% - 22px);
+  min-width: calc(100% - 22px);
 `;
 
 const TextSubmitButton = styled.span`
@@ -77,12 +80,12 @@ const ImageSelectWrapper = VerticalCenteredDiv.extend`
 
 class TextInput extends React.Component {
   componentDidMount(){
-    this.input.focus();
+    console.log(this.input);
   }
 
   render () {
     const {content, onSubmitImage, onSubmitText, onUpdateMessage} = this.props;
-    
+
     return (
       <TextView>
         <ImageSelectWrapper>
@@ -90,6 +93,7 @@ class TextInput extends React.Component {
         </ImageSelectWrapper>
         <TextInputWrapper>
           <TextInputArea type="text"
+            maxRows={3}
             innerRef={(comp) => { this.input = comp }}
             value={content}
             onChange={(event) => onUpdateMessage(event.target.value)}
