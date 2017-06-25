@@ -5,6 +5,7 @@
   "dependencies": {
     "emoji-mart": "^1.0.0",
     "moment": "^2.18.1",
+    "rc-tooltip": "^3.4.6",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-fontawesome": "^1.6.1",

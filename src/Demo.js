@@ -8,9 +8,9 @@ const peter = { id: 0, name: 'Peter', image: 'https://avatars1.githubusercontent
 const janis = { id: 1, name: 'Janis', image: 'https://avatars0.githubusercontent.com/u/8240324?v=3&s=460' };
 const andreas = { id: 2, name: 'Andreas', image: 'https://avatars2.githubusercontent.com/u/400791?v=3&s=460' };
 
-const ButtonSwitcher = styled.div `
+const ButtonSwitcher = styled.div`
   margin-top: 50px;
-`
+`;
 
 class Demo extends Component {
 
