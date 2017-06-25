@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
 import './demo.css';
 
 import ChateauBuble from './ChateauBuble';
@@ -6,6 +7,10 @@ import ChateauBuble from './ChateauBuble';
 const peter = { id: 0, name: 'Peter', image: 'https://avatars1.githubusercontent.com/u/7101602?v=3&s=460' };
 const janis = { id: 1, name: 'Janis', image: 'https://avatars0.githubusercontent.com/u/8240324?v=3&s=460' };
 const andreas = { id: 2, name: 'Andreas', image: 'https://avatars2.githubusercontent.com/u/400791?v=3&s=460' };
+
+const ButtonSwitcher = styled.div `
+  margin-top: 50px;
+`
 
 class Demo extends Component {
 
@@ -50,11 +55,11 @@ class Demo extends Component {
                       theme={this.state.theme}
                       user={this.state.user}
                       />
-          <div>
+          <ButtonSwitcher>
             <span>Switch Themes:</span>
             <button onClick={() => this.switchTheme('chateauBuble')}>ChateauBuble</button>
             <button onClick={() => this.switchTheme('green')}>Green</button>
-          </div>
+          </ButtonSwitcher>
         </div>
   }
 }
