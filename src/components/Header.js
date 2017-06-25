@@ -32,7 +32,7 @@ const Title = styled.div`
 `
 
 const Status = styled.div`
-  color: ${props => props.theme.highlights[0]};;
+  color: ${props => props.theme.highlights[2]};;
 `;
 
 const Image = styled.img`
