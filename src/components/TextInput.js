@@ -43,24 +43,34 @@ const TextSubmitButton = styled.span`
   width: 28px;
 `;
 
-const TextInput = ({content, onSubmit, onUpdateMessage}) => (
-  <TextView>
-    <TextInputWrapper>
-      <TextInputArea type="text"
-        value={content}
-        onChange={(event) => onUpdateMessage(event.target.value)}
-        onKeyUp={(event) => {
-          if (event.keyCode === 13 && content !== '') {
-            onSubmit(content);
-          }
-        }}
-        placeholder="type here"
-      />
-    </TextInputWrapper>
-    <TextSubmitWrapper>
-      <TextSubmitButton onClick={() => onSubmit(content)}>></TextSubmitButton>
-    </TextSubmitWrapper>
-  </TextView>
-);
+class TextInput extends React.Component {
+  componentDidMount(){
+    this.input.focus();
+  }
+
+  render () {
+    const {content, onSubmit, onUpdateMessage} = this.props;
+    return (
+      <TextView>
+        <TextInputWrapper>
+          <TextInputArea type="text"
+            innerRef={(comp) => { this.input = comp }}
+            value={content}
+            onChange={(event) => onUpdateMessage(event.target.value)}
+            onKeyUp={(event) => {
+              if (event.keyCode === 13 && content !== '') {
+                onSubmit(content);
+              }
+            }}
+            placeholder="type here"
+          />
+        </TextInputWrapper>
+        <TextSubmitWrapper>
+          <TextSubmitButton onClick={() => onSubmit(content)}>></TextSubmitButton>
+        </TextSubmitWrapper>
+      </TextView>
+    );
+  }
+}
 
 export default TextInput;
