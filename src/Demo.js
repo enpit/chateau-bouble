@@ -12,6 +12,12 @@ const ButtonSwitcher = styled.div`
   margin-top: 50px;
 `;
 
+const botMessages = [
+  { author: peter, type: 'text', content: 'Hi! How are you doing?', time: 1498326908910 },
+  { author: peter, type: 'text', content: 'Awesome! Do you want a cat picture?', time: 1498326108910 },
+  { author: peter, type: 'image', content: { alt: 'cats are awesome', url: 'https://fthmb.tqn.com/INZEtkWYEpsZaksoewT_mA4DREo=/960x0/filters:no_upscale()/about/Two-kittens-GettyImages-559292093-58822e4f3df78c2ccd8b318c.jpg'}, time: 1498326118910 }
+];
+
 class Demo extends Component {
 
   constructor () {
@@ -27,11 +33,25 @@ class Demo extends Component {
       chatStatus: 'online',
       chatTitle: 'enpit #reactriot',
       user: janis,
-      theme: 'nature'
+      theme: 'default'
     }
   }
 
+  mockReply () {
+      // mock a reply by another user - in reality the messages could be updated by a server
+      if (botMessages.length > 0) {
+        const msg = botMessages.shift();
+        setTimeout(() => {
+          msg.time = Date.now();
+          this.setState((prevState, props) => {
+            return { ...prevState, messages: ([...(prevState.messages), msg])};
+          });
+        }, 3000);
+      }
+  }
+
   onAddMessage (msg) {
+    this.mockReply();
     this.setState((prevState, props) => {
       return { ...prevState, messages: ([...(prevState.messages), msg])};
     });
