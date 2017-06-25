@@ -13,6 +13,7 @@ const ConversationView = styled.ul`
   scroll-behavior: smooth;
   background: ${props => props.theme.ConversationView.background};
   background-size: ${props => props.theme.ConversationView.backgroundSize};
+  transition: background 1s;
 `;
 
 class conversationview extends React.Component {

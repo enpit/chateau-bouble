@@ -13,6 +13,8 @@ const TextView = styled.div`
   display: block;
   height: calc(10% - 11px);
   padding: 5px;
+  transition: background-color 1s;
+  transition: border-top 1s;
   width: calc(100% - 10px);
 `;
 
@@ -35,6 +37,7 @@ const TextSubmitWrapper = styled.div`
 const TextInputArea = styled(TextArea)`
   &::placeholder {
     color: ${props => props.theme.TextInputArea.placeholder.color};
+    transition: color 1s;
   }
   &:focus {
     border: 1px solid ${props => props.theme.TextInputArea.focus.border};
