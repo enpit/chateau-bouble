@@ -7,7 +7,8 @@ const mapStateToProps = (state, ownProps) => {
     messages: state.messages.all,
     user: state.messages.user,
     theme: state.themes.current,
-    dimensions: ownProps.dimensions
+    dimensions: ownProps.dimensions,
+    interactiveMode: ownProps.interactiveMode
   };
 };
 

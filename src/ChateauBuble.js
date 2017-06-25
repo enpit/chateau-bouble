@@ -25,17 +25,12 @@ class ChateauBuble extends Component {
     this.updateProps(nextProps);
   }
 
-  shouldComponentUpdate () {
+  shouldComponentUpdate (nextProps) {
     if (this.initialLoad) {
       this.initialLoad = false;
       return true;
     } else {
-      /*
-       * the root component itself should not update when the props change
-       * instead, the child components are automatically updated via redux because
-       * the store is updated in `updateProps`
-       */
-      return false;
+      return this.props.interactiveMode !== nextProps.interactiveMode;
     }
   }
 
@@ -51,9 +46,10 @@ class ChateauBuble extends Component {
   }
 
   render () {
+    const { dimensions, interactiveMode, onAddMessage } = this.props;
     return (
       <Provider store={this.store}>
-        <Chat onAddMessage={this.props.onAddMessage} dimensions={this.props.dimensions}/>
+        <Chat dimensions={dimensions} interactiveMode={interactiveMode} onAddMessage={onAddMessage} />
       </Provider>
     )
   }

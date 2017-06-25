@@ -33,7 +33,8 @@ class Demo extends Component {
       chatStatus: 'online',
       chatTitle: 'enpit #reactriot',
       user: janis,
-      theme: 'default'
+      theme: 'default',
+      interactiveMode: true
     }
   }
 
@@ -58,9 +59,15 @@ class Demo extends Component {
   }
 
   switchTheme (theme) {
-    this.setState((prevState, props) => {
+    this.setState(prevState => {
       return { ...prevState, theme };
     });
+  }
+
+  onChangeInteractiveMode () {
+    this.setState(prevState => {
+      return { ...prevState, interactiveMode: !prevState.interactiveMode }
+    })
   }
 
   render () {
@@ -74,6 +81,7 @@ class Demo extends Component {
                       onAddMessage={(msg) => this.onAddMessage(msg)}
                       theme={this.state.theme}
                       user={this.state.user}
+                      interactiveMode={this.state.interactiveMode}
                       dimensions={{ width: 420, height: 600 }}
                       />
           <ButtonSwitcher>
@@ -83,6 +91,14 @@ class Demo extends Component {
             <button onClick={() => this.switchTheme('green')}>Green</button>
             <button onClick={() => this.switchTheme('nature')}>Nature</button>
           </ButtonSwitcher>
+          <label>
+            Interactive Mode:
+            <input
+            name="isGoing"
+            type="checkbox"
+            checked={this.state.interactiveMode}
+            onChange={() => this.onChangeInteractiveMode()} />
+          </label>
         </div>
   }
 }
