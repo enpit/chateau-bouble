@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import FontAwesome from 'react-fontawesome';
 import TextArea from 'react-autosize-textarea';
 
+import EmojiPickInput from '../containers/EmojiPickInput';
 import ImageSelect from './ImageSelect';
 
 const TextView = styled.div`
@@ -44,6 +45,7 @@ const TextInputArea = styled(TextArea)`
   }
   border: ${props => props.theme.TextInputArea.border};
   border-radius: 15px;
+  font-family: ${props => props.theme.ChatView.fontFamily};
   font-size: 14px;
   margin: 0;
   padding: 6px 10px;
@@ -84,6 +86,12 @@ const ImageSelectWrapper = styled.div`
   width: 10%;
 `;
 
+const EmojiPickerWrapper = styled.div`
+  display: inline-block;
+  left: -8%;
+  width: 0;
+`;
+
 class TextInput extends React.Component {
   componentDidMount(){
     console.log(this.input);
@@ -114,6 +122,9 @@ class TextInput extends React.Component {
             placeholder="type here"
           />
         </TextInputWrapper>
+        <EmojiPickerWrapper>
+          <EmojiPickInput content={content} />
+        </EmojiPickerWrapper>
         <TextSubmitWrapper>
           <TextSubmitButton onClick={() => content !== '' && onSubmitText(content)}>
             <FontAwesome name="paper-plane" />

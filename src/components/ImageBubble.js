@@ -9,6 +9,7 @@ const Image = styled.img`
   max-width: 220px;
   opacity: 0;
   text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.5);
+  border: ${props => props.theme.ImageBubble.border}
 `;
 
 class ImageBubbleClass extends React.Component {
@@ -36,7 +37,7 @@ class ImageBubbleClass extends React.Component {
 }
 
 const ImageBubble = GenericBubble(
-  ImageBubbleClass, 
+  ImageBubbleClass,
   ({content}) => (`
     background-image: url(${content.url});
     background-size: cover;

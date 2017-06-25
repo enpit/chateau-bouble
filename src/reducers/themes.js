@@ -11,7 +11,8 @@ const THEMES = {
       color: '#56acc9'
     },
     ChatView: {
-      background: '#fff'
+      background: '#fff',
+      fontFamily: '"Helvetica Neue", Arial, Verdana, sans-serif'
     },
     TextBubble: {
       color: '#000'
@@ -46,6 +47,9 @@ const THEMES = {
       hover: {
         color: '#56acc9'
       }
+    },
+    ImageBubble: {
+      boxShadow: 'none'
     },
     TextView: {
       backgroundColor: '#fff',
@@ -131,6 +135,16 @@ THEMES.green = Object.assign({}, THEMES.classic, {
     hover: {
       backgroundColor: '#25827e'
     }
+  }
+});
+
+THEMES.nature = Object.assign({}, THEMES.default, {
+  ConversationView: {
+    background: 'url("https://4.bp.blogspot.com/-esCc74oyDlg/WQd1e6ZjbgI/AAAAAAACLRo/EfzA4-DQNq03hKYHLUX-AO2dP-7KI9KXQCPcB/s0/Natural_Landscape_Alberta_Canada_img.jpg")',
+    backgroundSize: 'cover'
+  },
+  ImageBubble: {
+    boxShadow: '0px 0px 5px black'
   }
 });
 
