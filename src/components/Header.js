@@ -32,7 +32,8 @@ const Title = styled.div`
 `
 
 const Status = styled.div`
-  color: ${props => props.theme.highlights[2]};;
+  color: ${props => props.theme.highlights[2]};
+  font-weight: bold;
 `;
 
 const Image = styled.img`

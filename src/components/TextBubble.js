@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import ReactMarkdown from 'react-markdown';
 
 import GenericBubble from './GenericBubble';
 
@@ -13,7 +14,9 @@ const Text = styled.span`
 
 const TextBubble = GenericBubble(
   ({content}) => (
-    <Text>{content}</Text>
+    <Text>
+      <ReactMarkdown source={content} />
+    </Text>
   )
 );
 

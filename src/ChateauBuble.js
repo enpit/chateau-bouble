@@ -9,6 +9,7 @@ import {
   setMessages,
   setMetadata
 } from './actions/messages';
+import { setTheme } from './actions/themes';
 
 class ChateauBuble extends Component {
 
@@ -45,6 +46,7 @@ class ChateauBuble extends Component {
       title: props.chatTitle,
       user: props.user,
     }));
+    this.store.dispatch(setTheme(props.theme || 'chateauBuble'));
   }
 
   render () {
