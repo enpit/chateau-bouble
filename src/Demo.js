@@ -40,7 +40,7 @@ const botMessages = [
     type: 'image',
     content: {
       alt: 'cats are awesome',
-      url: 'https://fthmb.tqn.com/INZEtkWYEpsZaksoewT_mA4DREo=/960x0/filters:no_upscale()/about/Two-kittens-GettyImages-559292093-58822e4f3df78c2ccd8b318c.jpg'
+      url: 'http://rcysl.com/wp-content/uploads/2017/01/Cute-Cat-Pics-1920x1080.jpg'
     },
     time: 1498326118910
   }
@@ -105,7 +105,7 @@ class Demo extends Component {
             ])
           };
         });
-      }, 3000);
+      }, 1000);
     }
   }
 
