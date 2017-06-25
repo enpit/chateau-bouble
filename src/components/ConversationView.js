@@ -10,6 +10,8 @@ const ConversationView = styled.ul`
   padding-left: 0;
   padding-top: 1em;
   scroll-behavior: smooth;
+  background: ${props => props.theme.ConversationView.background};
+  background-size: ${props => props.theme.ConversationView.backgroundSize};
 `;
 
 class conversationview extends React.Component {

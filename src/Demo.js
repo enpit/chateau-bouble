@@ -27,7 +27,7 @@ class Demo extends Component {
       chatStatus: 'online',
       chatTitle: 'enpit #reactriot',
       user: janis,
-      theme: 'default'
+      theme: 'nature'
     }
   }
 
@@ -46,7 +46,7 @@ class Demo extends Component {
   render () {
       return <div style={{
           margin: '0 auto',
-          width: 720
+          width: 420
         }}>
         <ChateauBuble chatStatus={this.state.chatStatus}
                       chatTitle={this.state.chatTitle}
@@ -54,13 +54,14 @@ class Demo extends Component {
                       onAddMessage={(msg) => this.onAddMessage(msg)}
                       theme={this.state.theme}
                       user={this.state.user}
-                      dimensions={{ width: 720, height: 480 }}
+                      dimensions={{ width: 420, height: 600 }}
                       />
           <ButtonSwitcher>
             <span>Switch Themes:</span>
             <button onClick={() => this.switchTheme('default')}>Default</button>
             <button onClick={() => this.switchTheme('classic')}>Classic</button>
             <button onClick={() => this.switchTheme('green')}>Green</button>
+            <button onClick={() => this.switchTheme('nature')}>Nature</button>
           </ButtonSwitcher>
         </div>
   }
