@@ -9,7 +9,7 @@ import SenderImage from './SenderImage';
 const ForeignMessage = styled.div`
   clear: right;
   margin: 0.5em 0;
-  max-width: 240px;
+  max-width: calc(0.8 * ${props => props.theme.dimensions.width});
 `;
 
 const OwnMessage = styled(ForeignMessage)`
