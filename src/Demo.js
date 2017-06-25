@@ -21,13 +21,20 @@ class Demo extends Component {
       ],
       chatStatus: 'online',
       chatTitle: 'enpit #reactriot',
-      user: janis
+      user: janis,
+      theme: 'chateauBuble'
     }
   }
 
   onAddMessage (msg) {
     this.setState((prevState, props) => {
-      return { messages: ([...(prevState.messages), msg])}
+      return { ...prevState, messages: ([...(prevState.messages), msg])};
+    });
+  }
+
+  switchTheme (theme) {
+    this.setState((prevState, props) => {
+      return { ...prevState, theme };
     });
   }
 
@@ -40,9 +47,14 @@ class Demo extends Component {
                       chatTitle={this.state.chatTitle}
                       messages={this.state.messages}
                       onAddMessage={(msg) => this.onAddMessage(msg)}
-                      theme="green"
+                      theme={this.state.theme}
                       user={this.state.user}
                       />
+          <div>
+            <span>Switch Themes:</span>
+            <button onClick={() => this.switchTheme('chateauBuble')}>ChateauBuble</button>
+            <button onClick={() => this.switchTheme('green')}>Green</button>
+          </div>
         </div>
   }
 }
