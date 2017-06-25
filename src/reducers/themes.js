@@ -136,7 +136,6 @@ THEMES.green = Object.assign({}, THEMES.classic, {
 
 const themes = (state = THEMES, action) => {
   if (action.type === SET_THEME) {
-    console.log(THEMES[action.name]);
     return { current: THEMES[action.name] || THEMES.green };
   } else {
     return state;

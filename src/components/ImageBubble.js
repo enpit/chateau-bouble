@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Lightbox from 'react-image-lightbox';
 
 import GenericBubble from './GenericBubble';
 
@@ -10,10 +11,32 @@ const Image = styled.img`
   text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.5);
 `;
 
+class ImageBubbleClass extends React.Component {
+
+  constructor (props) {
+    super(props);
+    this.state = {
+      fullscreen: false
+    };
+  }
+
+  render () {
+    return (
+      <div>
+        <Image alt={this.props.content.alt} src={this.props.content.url} onClick={() => this.setState({ fullscreen: true })} />
+        { this.state.fullscreen && <Lightbox
+          mainSrc={this.props.content.url}
+          onCloseRequest={() => this.setState({ fullscreen: false })}
+          enableZoom={false}
+        />
+        }
+      </div>
+    );
+  }
+}
+
 const ImageBubble = GenericBubble(
-  ({content}) => (
-    <Image alt={content.alt} src={content.url} />
-  ), 
+  ImageBubbleClass, 
   ({content}) => (`
     background-image: url(${content.url});
     background-size: cover;
