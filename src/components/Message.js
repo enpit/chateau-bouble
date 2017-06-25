@@ -17,7 +17,7 @@ const OwnMessage = styled(ForeignMessage)`
 `;
 
 const Time = styled.span`
-  color: ${props => props.theme.text[3]};
+  color: ${props => props.theme.Time.color};
   display: block;
   font-size: 0.75em;
   font-weight: bold;

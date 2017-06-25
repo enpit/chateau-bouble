@@ -7,9 +7,10 @@ import ImageSelect from './ImageSelect';
 import VerticalCenteredDiv from './VerticalCenteredDiv';
 
 const TextView = styled.div`
-  background-color: ${props => props.theme.backgrounds[1]};
+  background-color: ${props => props.theme.TextView.backgroundColor};
+  border-top: ${props => props.theme.TextView.borderTop};
   clear: right;
-  height: calc(10% - 10px);
+  height: calc(10% - 11px);
   padding: 5px;
   width: calc(100% - 10px);
 `;
@@ -28,16 +29,16 @@ const TextSubmitWrapper = VerticalCenteredDiv.extend`
 
 const TextInputArea = styled.input`
   &::placeholder {
-    color: ${props => props.theme.text[1]};
+    color: ${props => props.theme.TextInputArea.placeholder.color};
   }
   &:focus {
-    border: 1px solid ${props => props.theme.highlights[0]};
+    border: 1px solid ${props => props.theme.TextInputArea.focus.border};
     outline: none;
   }
   &:hover {
-    border: 1px solid white;
+    border: ${props => props.theme.TextInputArea.hover.border};
   }
-  border: 1px solid ${props => props.theme.text[1]};
+  border: ${props => props.theme.TextInputArea.border};
   border-radius: 15px;
   font-size: 14px;
   padding: 5px 10px;
@@ -46,7 +47,7 @@ const TextInputArea = styled.input`
 `;
 
 const TextSubmitButton = styled.span`
-  background-color: ${props => props.theme.highlights[0]};
+  background-color: ${props => props.theme.TextSubmitButton.backgroundColor};
   border-radius: 14px;
   color: white;
   display: block;
@@ -59,7 +60,7 @@ const TextSubmitButton = styled.span`
   width: 26px;
 
   &:hover {
-    background-color: ${props => props.theme.highlights[2]};
+    background-color: ${props => props.theme.TextSubmitButton.hover.backgroundColor};
     cursor: pointer;
   }
 

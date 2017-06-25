@@ -3,11 +3,11 @@ import styled from 'styled-components';
 import FontAwesome from 'react-fontawesome';
 
 const ImageLogo = styled(FontAwesome)`
-  color: ${props => props.theme.text[3]};
+  color: ${props => props.theme.ImageSelectLogo.color};
   font-size: 22px;
 
   &:hover {
-    color: ${props => props.theme.highlights[2]};
+    color: ${props => props.theme.ImageSelectLogo.hover.color};
     cursor: pointer;
   }
 
