@@ -1,11 +1,28 @@
 import React from 'react';
 import Tooltip from 'rc-tooltip';
-import { Picker } from 'emoji-mart';
+import { Emoji, Picker } from 'emoji-mart';
 import styled from 'styled-components';
+
+import VerticalCenteredDiv from './VerticalCenteredDiv';
 
 import style from '../emoji-mart.css';
 
-const StyledPicker = styled(Picker)`
+const EmojiLogo = styled(VerticalCenteredDiv)`
+
+  display: inline;
+
+  > span {
+    display: inline-block;
+  }
+
+  span > span {
+    filter: grayscale(100%);
+    transition: filter 1s;
+  }
+
+  span > span:hover {
+    filter: none;
+  }
 `;
 
 const EmojiPicker = ({ onPickEmoji }) => (
@@ -16,9 +33,11 @@ const EmojiPicker = ({ onPickEmoji }) => (
       mouseLeaveDelay={0.5}
       destroyTooltipOnHide={true}
       trigger={['hover']}
-      overlay={<StyledPicker onClick={onPickEmoji}/>}
+      overlay={<Picker onClick={onPickEmoji}/>}
     >
-      <span>:)</span>
+      <EmojiLogo>
+        <Emoji emoji="smiley" size={20} set="emojione"/>
+      </EmojiLogo>
     </Tooltip>
   </div>
 );

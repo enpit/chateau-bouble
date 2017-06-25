@@ -18,7 +18,7 @@ const TextInputWrapper = VerticalCenteredDiv.extend`
   display: inline-block;
   padding: 0 1%;
   text-align: center;
-  width: 68%;
+  width: 78%;
 `;
 
 const TextSubmitWrapper = VerticalCenteredDiv.extend`
@@ -68,7 +68,8 @@ const TextSubmitButton = styled.span`
 
 const EmojiPickerWrapper = VerticalCenteredDiv.extend`
   display: inline-block;
-  width: 10%;
+  left: -8%;
+  width: 0;
 `;
 
 const ImageSelectWrapper = VerticalCenteredDiv.extend`
