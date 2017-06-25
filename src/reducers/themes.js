@@ -11,7 +11,8 @@ const THEMES = {
       color: '#56acc9'
     },
     ChatView: {
-      background: '#fff'
+      background: '#fff',
+      fontFamily: '"Helvetica Neue", Arial, Verdana, sans-serif'
     },
     TextBubble: {
       color: '#000'

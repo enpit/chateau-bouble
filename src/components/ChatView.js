@@ -8,7 +8,7 @@ import MessageInput from '../containers/MessageInput';
 
 const ChatView = styled.div `
     background-color: ${props => props.theme.ChatView.background};
-    font-family: "Helvetica Neue", Arial, Verdana, sans-serif;
+    font-family: ${props => props.theme.ChatView.fontFamily};
     font-size: 14px;
     height: ${props => props.dimensions.height}px;
     width: ${props => props.dimensions.width}px;

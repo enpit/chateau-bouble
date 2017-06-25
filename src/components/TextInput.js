@@ -40,6 +40,7 @@ const TextInputArea = styled.input`
   }
   border: ${props => props.theme.TextInputArea.border};
   border-radius: 15px;
+  font-family: ${props => props.theme.ChatView.fontFamily};
   font-size: 14px;
   padding: 5px 10px;
   transition: border 1s;
