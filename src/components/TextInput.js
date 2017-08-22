@@ -98,7 +98,7 @@ const EmojiPickerWrapper = styled.div`
 `;
 
 // TODO: Rename to 'MessageBar' or sth like that
-
+// TODO: Refactor this into three(?) components
 
 const createMessage = (user, content, type) =>
   ({ author: user, content, time: (new Date()).getTime(), type });
@@ -149,7 +149,7 @@ class TextInput extends React.Component {
 
 	render () {
     const {user, content, onSubmitImage, onSubmitText, onUpdateMessage, onAddMessage} = this.props;
-
+	const { message } = this.state;
     return (
       <TextView>
         <ImageSelectWrapper>
@@ -169,7 +169,7 @@ class TextInput extends React.Component {
           <EmojiPicker content={content} updateMessage={this.onPickEmoji}/>
         </EmojiPickerWrapper>
         <TextSubmitWrapper>
-          <TextSubmitButton onClick={() => content !== '' && this.handleSendMessage()}>
+          <TextSubmitButton onClick={() => message !== '' && this.handleSendMessage()}>
             <FontAwesome name="paper-plane" />
           </TextSubmitButton>
         </TextSubmitWrapper>
