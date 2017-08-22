@@ -183,3 +183,4 @@ const themes = (state = THEMES, action) => {
 };
 
 export default themes;
+export { THEMES as Themes };

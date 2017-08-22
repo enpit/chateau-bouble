@@ -2,56 +2,42 @@ import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import styles from './assets/font-awesome/css/font-awesome.min.css';
 
-import Chat from './containers/Chat';
+import ChatView from './components/ChatView';
 import configureStore from './store';
 
-import {
-  setMessages,
-  setMetadata
-} from './actions/messages';
 import { setTheme } from './actions/themes';
+import { Themes } from './reducers/themes';
 
 class ChateauBuble extends Component {
 
   constructor (props) {
     super(props);
 
-    this.initialLoad = true;
     this.store = configureStore({});
-    this.updateProps(props);
-  }
-
-  componentWillReceiveProps (nextProps) {
-    this.updateProps(nextProps);
   }
 
   shouldComponentUpdate (nextProps) {
-    if (this.initialLoad) {
-      this.initialLoad = false;
-      return true;
-    } else {
-      return this.props.interactiveMode !== nextProps.interactiveMode;
+    return (this.props.interactiveMode !== nextProps.interactiveMode) ||
+            (this.props.messages.length !== nextProps.messages.length);
+  }
+
+    render () {
+        const { dimensions, interactiveMode, onAddMessage } = this.props;
+        const theme = Themes[this.props.theme || 'chateauBuble'];
+
+        return (
+            <Provider store={this.store}>
+                <ChatView
+                    dimensions={dimensions}
+                    interactiveMode={interactiveMode}
+                    onAddMessage={onAddMessage}
+                    messages={this.props.messages}
+                    user={this.props.user}
+                    theme={theme}
+             />
+          </Provider>
+        );
     }
-  }
-
-  updateProps (props) {
-    this.store.dispatch(setMessages(props.messages));
-    this.store.dispatch(setMetadata({
-      status: props.chatStatus,
-      title: props.chatTitle,
-      user: props.user,
-    }));
-    this.store.dispatch(setTheme(props.theme || 'chateauBuble'));
-  }
-
-  render () {
-    const { dimensions, interactiveMode, onAddMessage } = this.props;
-    return (
-      <Provider store={this.store}>
-        <Chat dimensions={dimensions} interactiveMode={interactiveMode} onAddMessage={onAddMessage} />
-      </Provider>
-    )
-  }
 }
 
 

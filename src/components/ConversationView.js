@@ -25,16 +25,16 @@ class ConversationView extends React.Component {
     this.scrollToBottom();
   }
 
-  scrollToBottom () {
-    this.el.parentNode.style.overflowY = 'hidden';
-    this.el.parentNode.scrollTop = this.el.parentNode.scrollHeight;
-    setTimeout(function () {
-      this.el.parentNode.style.overflowY = 'scroll';
-    }.bind(this),0);
-  }
+	scrollToBottom () {
+		if (this.el === undefined) return;
+		this.el.parentNode.style.overflowY = 'hidden';
+		this.el.parentNode.scrollTop = this.el.parentNode.scrollHeight;
+		setTimeout(function () {
+			this.el.parentNode.style.overflowY = 'scroll';
+		}.bind(this),0);
+	}
 
   render () {
-
     const { messages, user } = this.props;
 
     const bubbles = messages.map((message, index) => {
