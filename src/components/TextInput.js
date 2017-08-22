@@ -97,13 +97,44 @@ const EmojiPickerWrapper = styled.div`
   width: 0;
 `;
 
-class TextInput extends React.Component {
-  componentDidMount(){
-    console.log(this.input);
-  }
+// TODO: Rename to 'MessageBar' or sth like that
 
-  render () {
-    const {content, onSubmitImage, onSubmitText, onUpdateMessage} = this.props;
+
+const createMessage = (user, content, type) =>
+  ({ author: user, content, time: (new Date()).getTime(), type });
+
+class TextInput extends React.Component {
+	constructor (props) {
+		super(props);
+		this.state = { message: '' };
+		this.handleChangeText = this.handleChangeText.bind(this);
+		this.handleSendMessage = this.handleSendMessage.bind(this);
+		this.handleKeyDown = this.handleKeyDown.bind(this);
+	}
+
+	handleSendMessage () {
+		if (this.state.message !== '') {
+			const message = createMessage(this.props.user, this.state.message, 'text');
+			this.props.onAddMessage(message);
+			this.setState({ message: '' });
+		}
+	}
+
+	handleKeyDown (event) {
+		if (event.keyCode === 13) {
+			event.preventDefault();
+			this.handleSendMessage();
+		}
+	}
+
+	handleChangeText (evt) {
+		this.setState({
+			message: evt.target.value
+		});
+	}
+
+	render () {
+    const {user, content, onSubmitImage, onSubmitText, onUpdateMessage, onAddMessage} = this.props;
 
     return (
       <TextView>
@@ -114,16 +145,9 @@ class TextInput extends React.Component {
           <TextInputArea type="text"
             maxRows={3}
             innerRef={(comp) => { this.input = comp }}
-            value={content}
-            onChange={(event) => onUpdateMessage(event.target.value)}
-            onKeyDown={(event) => {
-              if (event.keyCode === 13) {
-                event.preventDefault();
-                if (content !== '') {
-                  onSubmitText(content);
-                }
-              }
-            }}
+            value={this.state.message}
+            onChange={this.handleChangeText}
+            onKeyDown={this.handleKeyDown}
             placeholder="type here"
           />
         </TextInputWrapper>
