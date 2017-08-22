@@ -110,6 +110,8 @@ class TextInput extends React.Component {
 		this.handleChangeText = this.handleChangeText.bind(this);
 		this.handleSendMessage = this.handleSendMessage.bind(this);
 		this.handleKeyDown = this.handleKeyDown.bind(this);
+		this.onPickEmoji = this.onPickEmoji.bind(this);
+		this.onPickImage = this.onPickImage.bind(this);
 	}
 
 	handleSendMessage () {
@@ -133,13 +135,25 @@ class TextInput extends React.Component {
 		});
 	}
 
+	onPickEmoji (emoji) {
+		this.setState({
+			message: this.state.message + emoji
+		})
+	}
+
+	onPickImage (imageUrl) {
+		const { user } = this.props;
+		const message = createMessage(user, { alt: `Image uploaded by ${user.name}`, url: imageUrl}, 'image');
+		this.props.onAddMessage(message);
+	}
+
 	render () {
     const {user, content, onSubmitImage, onSubmitText, onUpdateMessage, onAddMessage} = this.props;
 
     return (
       <TextView>
         <ImageSelectWrapper>
-          <ImageSelect onSubmit={onSubmitImage} />
+          <ImageSelect onSubmit={this.onPickImage} />
         </ImageSelectWrapper>
         <TextInputWrapper>
           <TextInputArea type="text"
@@ -152,10 +166,10 @@ class TextInput extends React.Component {
           />
         </TextInputWrapper>
         <EmojiPickerWrapper>
-          <EmojiPicker content={content} updateMessage={onUpdateMessage}/>
+          <EmojiPicker content={content} updateMessage={this.onPickEmoji}/>
         </EmojiPickerWrapper>
         <TextSubmitWrapper>
-          <TextSubmitButton onClick={() => content !== '' && onSubmitText(content)}>
+          <TextSubmitButton onClick={() => content !== '' && this.handleSendMessage()}>
             <FontAwesome name="paper-plane" />
           </TextSubmitButton>
         </TextSubmitWrapper>
