@@ -2,7 +2,7 @@ import React from 'react';
 import Message from './Message';
 import styled from 'styled-components';
 
-const ConversationView = styled.ul`
+const MessageUL = styled.ul`
   height: calc(80% - 1em);
   list-style-type: none;
   margin: 0;
@@ -15,7 +15,7 @@ const ConversationView = styled.ul`
   background-size: ${props => props.theme.ConversationView.backgroundSize};
 `;
 
-class conversationview extends React.Component {
+class ConversationView extends React.Component {
 
   componentDidUpdate () {
     this.scrollToBottom();
@@ -54,11 +54,11 @@ class conversationview extends React.Component {
     });
 
     return (
-      <ConversationView>{bubbles}</ConversationView>
+      <MessageUL>{bubbles}</MessageUL>
     );
 
   }
 
 };
 
-export default conversationview;
+export default ConversationView;
