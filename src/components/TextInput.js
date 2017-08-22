@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import FontAwesome from 'react-fontawesome';
 import TextArea from 'react-autosize-textarea';
 
-import EmojiPickInput from '../containers/EmojiPickInput';
+import EmojiPicker from './EmojiPicker';
 import ImageSelect from './ImageSelect';
 
 const TextView = styled.div`
@@ -128,7 +128,7 @@ class TextInput extends React.Component {
           />
         </TextInputWrapper>
         <EmojiPickerWrapper>
-          <EmojiPickInput content={content} />
+          <EmojiPicker content={content} updateMessage={onUpdateMessage}/>
         </EmojiPickerWrapper>
         <TextSubmitWrapper>
           <TextSubmitButton onClick={() => content !== '' && onSubmitText(content)}>
