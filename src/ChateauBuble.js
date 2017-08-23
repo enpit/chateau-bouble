@@ -5,8 +5,7 @@ import styles from './assets/font-awesome/css/font-awesome.min.css';
 import ChatView from './components/ChatView';
 import configureStore from './store';
 
-import { setTheme } from './actions/themes';
-import { Themes } from './reducers/themes';
+import Themes from './reducers/themes';
 
 class ChateauBuble extends Component {
 
@@ -14,11 +13,6 @@ class ChateauBuble extends Component {
     super(props);
 
     this.store = configureStore({});
-  }
-
-  shouldComponentUpdate (nextProps) {
-    return (this.props.interactiveMode !== nextProps.interactiveMode) ||
-            (this.props.messages.length !== nextProps.messages.length);
   }
 
     render () {

@@ -148,7 +148,7 @@ class TextInput extends React.Component {
 	}
 
 	render () {
-    const {user, content, onSubmitImage, onSubmitText, onUpdateMessage, onAddMessage} = this.props;
+    const {user, onAddMessage} = this.props;
 	const { message } = this.state;
     return (
       <TextView>
@@ -166,7 +166,7 @@ class TextInput extends React.Component {
           />
         </TextInputWrapper>
         <EmojiPickerWrapper>
-          <EmojiPicker content={content} updateMessage={this.onPickEmoji}/>
+          <EmojiPicker content={message} updateMessage={this.onPickEmoji}/>
         </EmojiPickerWrapper>
         <TextSubmitWrapper>
           <TextSubmitButton onClick={() => message !== '' && this.handleSendMessage()}>
