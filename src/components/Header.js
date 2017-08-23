@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import styled from 'styled-components';
 
 const size = 32;
@@ -48,12 +47,6 @@ const Image = styled.img`
   width: ${size}px;
 `;
 
-const mapStateToProps = state => ({
-  status: state.messages.status,
-  title: state.messages.title,
-  user: state.messages.user
-});
-
 const Header = ({ title = '', status = '', user = {}}) => (
   <StyledHeader>
     <Centered>
@@ -66,4 +59,4 @@ const Header = ({ title = '', status = '', user = {}}) => (
   </StyledHeader>
 );
 
-export default connect(mapStateToProps)(Header);
+export default Header;

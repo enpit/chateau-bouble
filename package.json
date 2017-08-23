@@ -13,9 +13,7 @@
     "react-image-lightbox": "^4.1.0",
     "react-markdown": "^2.5.0",
     "react-popup": "^0.8.0",
-    "react-redux": "^5.0.5",
     "react-tooltip": "^3.3.0",
-    "redux": "^3.7.0",
     "styled-components": "^2.1.0"
   },
   "devDependencies": {

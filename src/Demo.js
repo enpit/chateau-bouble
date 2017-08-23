@@ -151,7 +151,7 @@ class Demo extends Component {
           width: 420,
           border: '1px solid #ededed'
         }}>
-          <ChateauBuble chatStatus={this.state.chatStatus} chatTitle={this.state.chatTitle} messages={this.state.messages} onAddMessage={(msg) => this.onAddMessage(msg)} theme={this.state.theme} user={this.state.user} interactiveMode={this.state.interactiveMode} dimensions={{
+          <ChateauBuble status={this.state.chatStatus} title={this.state.chatTitle} messages={this.state.messages} onAddMessage={(msg) => this.onAddMessage(msg)} themeKey={this.state.theme} user={this.state.user} interactiveMode={this.state.interactiveMode} dimensions={{
             width: 420,
             height: 600
           }}/>

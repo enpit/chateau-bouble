@@ -1,37 +1,16 @@
 import React, { Component } from 'react';
-import { Provider } from 'react-redux';
 import styles from './assets/font-awesome/css/font-awesome.min.css';
 
 import ChatView from './components/ChatView';
-import configureStore from './store';
 
-import Themes from './reducers/themes';
+import Themes from './themes';
 
-class ChateauBuble extends Component {
+const ChateauBuble = (props) => {
+    const theme = Themes[props.themeKey || 'chateauBuble'];
 
-  constructor (props) {
-    super(props);
-
-    this.store = configureStore({});
-  }
-
-    render () {
-        const { dimensions, interactiveMode, onAddMessage } = this.props;
-        const theme = Themes[this.props.theme || 'chateauBuble'];
-
-        return (
-            <Provider store={this.store}>
-                <ChatView
-                    dimensions={dimensions}
-                    interactiveMode={interactiveMode}
-                    onAddMessage={onAddMessage}
-                    messages={this.props.messages}
-                    user={this.props.user}
-                    theme={theme}
-             />
-          </Provider>
-        );
-    }
+    return (
+        <ChatView {...props} theme={theme} />
+    );
 }
 
 
