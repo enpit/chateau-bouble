@@ -12,6 +12,7 @@ const EmojiLogo = styled(VerticalCenteredDiv)`
   display: inline;
 
   > span {
+    cursor: pointer;
     display: inline-block;
   }
 
@@ -25,11 +26,19 @@ const EmojiLogo = styled(VerticalCenteredDiv)`
   }
 `;
 
+const createMessage = (user, content, type) =>
+  ({ author: user, content, time: (new Date()).getTime(), type });
+
 class EmojiPicker extends React.Component {
 
   constructor (props) {
     super(props);
     this.pickerX = 0;
+  }
+
+  onPickEmoji (emoji) {
+    const message = createMessage(this.props.user, this.props.content + emoji.native, 'text');
+    this.props.updateMessage(emoji.native);
   }
 
   componentDidMount () {
@@ -49,8 +58,7 @@ class EmojiPicker extends React.Component {
       position: relative;
       left: ${this.pickerX}px !important;
     `;
-    console.log(this.right);
-    const { onPickEmoji } = this.props;
+
     return (
       <div ref={(el) => this.div = el }>
         <Tooltip
@@ -59,7 +67,7 @@ class EmojiPicker extends React.Component {
           mouseLeaveDelay={0.5}
           destroyTooltipOnHide={true}
           trigger={['click']}
-          overlay={<PickerContainer><Picker onClick={onPickEmoji}/></PickerContainer>}
+          overlay={<PickerContainer><Picker onClick={(e) => this.onPickEmoji(e)}/></PickerContainer>}
         >
           <EmojiLogo>
             <Emoji emoji="smiley" size={20} set="emojione"/>

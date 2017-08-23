@@ -1,5 +1,3 @@
-import { SET_THEME } from '../actions/themes';
-
 /*
 highlights: [OwnBubble, ForeignBubble, Status],
 text: [,,ForeignAuthor,]
@@ -174,12 +172,5 @@ THEMES.blue = Object.assign({}, THEMES.default, {
   }
 });
 
-const themes = (state = THEMES, action) => {
-  if (action.type === SET_THEME) {
-    return { current: THEMES[action.name] || THEMES.green };
-  } else {
-    return state;
-  }
-};
+export default THEMES;
 
-export default themes;

@@ -4,7 +4,7 @@ import styled, {ThemeProvider} from 'styled-components';
 
 import Header from './Header';
 import ConversationView from './ConversationView';
-import MessageInput from '../containers/MessageInput';
+import TextInput from './TextInput';
 
 const ChatView = styled.div `
     background-color: ${props => props.theme.ChatView.background};
@@ -14,12 +14,12 @@ const ChatView = styled.div `
     width: ${props => props.dimensions.width}px;
 `;
 
-export default ({dimensions, interactiveMode, messages, onAddMessage, theme, user}) => (
+export default ({dimensions, interactiveMode, messages, onAddMessage, status, theme, title, user}) => (
   <ThemeProvider theme={theme}>
     <ChatView dimensions={dimensions}>
-      { interactiveMode && <Header />}
+      { interactiveMode && <Header status={status} title={title} user={user}/>}
       <ConversationView messages={messages} user={user}/>
-      { interactiveMode && <MessageInput onAddMessage={onAddMessage} user={user}/>}
+      { interactiveMode && <TextInput onAddMessage={onAddMessage} user={user}/>}
     </ChatView>
   </ThemeProvider>
 );
