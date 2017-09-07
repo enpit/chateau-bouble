@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import FontAwesome from 'react-fontawesome';
 import TextArea from 'react-autosize-textarea';
 
-import EmojiPickInput from '../containers/EmojiPickInput';
+import EmojiPicker from './EmojiPicker';
 import ImageSelect from './ImageSelect';
 
 const TextView = styled.div`
@@ -97,41 +97,79 @@ const EmojiPickerWrapper = styled.div`
   width: 0;
 `;
 
+// TODO: Rename to 'MessageBar' or sth like that
+// TODO: Refactor this into three(?) components
+
+const createMessage = (user, content, type) =>
+  ({ author: user, content, time: (new Date()).getTime(), type });
+
 class TextInput extends React.Component {
-  componentDidMount(){
-    console.log(this.input);
-  }
+	constructor (props) {
+		super(props);
+		this.state = { message: '' };
+		this.handleChangeText = this.handleChangeText.bind(this);
+		this.handleSendMessage = this.handleSendMessage.bind(this);
+		this.handleKeyDown = this.handleKeyDown.bind(this);
+		this.onPickEmoji = this.onPickEmoji.bind(this);
+		this.onPickImage = this.onPickImage.bind(this);
+	}
 
-  render () {
-    const {content, onSubmitImage, onSubmitText, onUpdateMessage} = this.props;
+	handleSendMessage () {
+		if (this.state.message !== '') {
+			const message = createMessage(this.props.user, this.state.message, 'text');
+			this.props.onAddMessage(message);
+			this.setState({ message: '' });
+		}
+	}
 
+	handleKeyDown (event) {
+		if (event.keyCode === 13) {
+			event.preventDefault();
+			this.handleSendMessage();
+		}
+	}
+
+	handleChangeText (evt) {
+		this.setState({
+			message: evt.target.value
+		});
+	}
+
+	onPickEmoji (emoji) {
+		this.setState({
+			message: this.state.message + emoji
+		})
+	}
+
+	onPickImage (imageUrl) {
+		const { user } = this.props;
+		const message = createMessage(user, { alt: `Image uploaded by ${user.name}`, url: imageUrl}, 'image');
+		this.props.onAddMessage(message);
+	}
+
+	render () {
+    const {user, onAddMessage} = this.props;
+	const { message } = this.state;
     return (
       <TextView>
         <ImageSelectWrapper>
-          <ImageSelect onSubmit={onSubmitImage} />
+          <ImageSelect onSubmit={this.onPickImage} />
         </ImageSelectWrapper>
         <TextInputWrapper>
           <TextInputArea type="text"
             maxRows={3}
             innerRef={(comp) => { this.input = comp }}
-            value={content}
-            onChange={(event) => onUpdateMessage(event.target.value)}
-            onKeyDown={(event) => {
-              if (event.keyCode === 13) {
-                event.preventDefault();
-                if (content !== '') {
-                  onSubmitText(content);
-                }
-              }
-            }}
+            value={this.state.message}
+            onChange={this.handleChangeText}
+            onKeyDown={this.handleKeyDown}
             placeholder="type here"
           />
         </TextInputWrapper>
         <EmojiPickerWrapper>
-          <EmojiPickInput content={content} />
+          <EmojiPicker content={message} updateMessage={this.onPickEmoji}/>
         </EmojiPickerWrapper>
         <TextSubmitWrapper>
-          <TextSubmitButton onClick={() => content !== '' && onSubmitText(content)}>
+          <TextSubmitButton onClick={() => message !== '' && this.handleSendMessage()}>
             <FontAwesome name="paper-plane" />
           </TextSubmitButton>
         </TextSubmitWrapper>
