@@ -100,10 +100,17 @@ class Demo extends Component {
   }
 
   render () {
-    return <ChateauBuble chatStatus={this.state.chatStatus} chatTitle={this.state.chatTitle} messages={this.state.messages} onAddMessage={(msg) => this.onAddMessage(msg)} theme={this.state.theme} user={this.state.user} interactiveMode={this.state.interactiveMode} dimensions={{
-            width: 420,
-            height: 600
-          }}/>
+    return <ChateauBuble chatStatus={this.state.chatStatus} 
+                         chatTitle={this.state.chatTitle}
+                         messages={this.state.messages}
+                         onAddMessage={(msg) => this.onAddMessage(msg)}
+                         theme={this.state.theme}
+                         user={this.state.user}
+                         interactiveMode={this.state.interactiveMode}
+                         dimensions={{
+                           width: 420,
+                           height: 600
+                         }} />
   }
 }
 
