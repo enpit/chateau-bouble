@@ -75,7 +75,7 @@ class EmojiPicker extends React.Component {
                   <Picker
                       onClick={(e) => this.onPickEmoji(e)}
                       set={emojiSet}
-                      sheetSize={32}
+                      sheetSize={emojiSize}
                   />
               </PickerContainer>
           }
