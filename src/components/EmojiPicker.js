@@ -26,11 +26,18 @@ const EmojiLogo = styled(VerticalCenteredDiv)`
   }
 `;
 
+const emojiSet = 'emojione';
+const emojiSize = 32;
+
 class EmojiPicker extends React.Component {
 
   constructor (props) {
     super(props);
     this.pickerX = 0;
+    const sheetUrl = Emoji.defaultProps.backgroundImageFn(emojiSet, emojiSize);
+    const oReq = new XMLHttpRequest();
+    oReq.open("GET", sheetUrl);
+    oReq.send();
   }
 
   onPickEmoji (emoji) {
@@ -63,10 +70,18 @@ class EmojiPicker extends React.Component {
           mouseLeaveDelay={0.5}
           destroyTooltipOnHide={true}
           trigger={['click']}
-          overlay={<PickerContainer><Picker onClick={(e) => this.onPickEmoji(e)}/></PickerContainer>}
+          overlay={
+              <PickerContainer>
+                  <Picker
+                      onClick={(e) => this.onPickEmoji(e)}
+                      set={emojiSet}
+                      sheetSize={32}
+                  />
+              </PickerContainer>
+          }
         >
           <EmojiLogo>
-            <Emoji emoji="smiley" size={20} set="emojione"/>
+              <Emoji emoji="smiley" size={20} set={emojiSet} sheetSize={32} />
           </EmojiLogo>
         </Tooltip>
       </div>
