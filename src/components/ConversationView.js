@@ -42,12 +42,12 @@ class ConversationView extends React.Component {
 
         if (index === messages.length-1) {
             bubbleli =
-                <li key={index} ref={ (el) => {this.el = el;} }>
+                <li key={message.time} ref={ (el) => {this.el = el;} }>
                     <Message author={message.author} content={message.content} time={message.time} type={message.type} isOwnMessage={message.author === user} />
                 </li>;
         } else {
             bubbleli =
-                <li key={index}>
+                <li key={message.time}>
                     <Message author={message.author} content={message.content} time={message.time} type={message.type} isOwnMessage={message.author === user} />
                 </li>;
         }
