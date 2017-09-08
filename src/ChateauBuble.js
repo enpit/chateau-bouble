@@ -1,8 +1,6 @@
-import React, { Component } from 'react';
-import styles from './assets/font-awesome/css/font-awesome.min.css';
+import React from 'react';
 
 import ChatView from './components/ChatView';
-
 import Themes from './themes';
 
 const ChateauBuble = (props) => {

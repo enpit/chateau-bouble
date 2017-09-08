@@ -148,7 +148,6 @@ class TextInput extends React.Component {
 	}
 
 	render () {
-    const {user, onAddMessage} = this.props;
 	const { message } = this.state;
     return (
       <TextView>

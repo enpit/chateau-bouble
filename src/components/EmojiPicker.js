@@ -26,9 +26,6 @@ const EmojiLogo = styled(VerticalCenteredDiv)`
   }
 `;
 
-const createMessage = (user, content, type) =>
-  ({ author: user, content, time: (new Date()).getTime(), type });
-
 class EmojiPicker extends React.Component {
 
   constructor (props) {
@@ -37,7 +34,6 @@ class EmojiPicker extends React.Component {
   }
 
   onPickEmoji (emoji) {
-    const message = createMessage(this.props.user, this.props.content + emoji.native, 'text');
     this.props.updateMessage(emoji.native);
   }
 
