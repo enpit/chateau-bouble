@@ -1,6 +1,7 @@
 {
   "name": "chateau-buble",
   "version": "0.1.0",
+  "main": "ChateauBuble.js",
   "private": true,
   "dependencies": {
     "emoji-mart": "^1.0.0",
