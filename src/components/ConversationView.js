@@ -28,10 +28,12 @@ class ConversationView extends React.Component {
 	scrollToBottom () {
 		if (this.el === undefined) return;
 		this.el.parentNode.style.overflowY = 'hidden';
-		this.el.parentNode.scrollTop = this.el.parentNode.scrollHeight;
+		
 		setTimeout(function () {
+      this.el.parentNode.scrollTop = this.el.parentNode.scrollHeight;
 			this.el.parentNode.style.overflowY = 'scroll';
-		}.bind(this),0);
+    }.bind(this),0);
+    
 	}
 
   render () {
