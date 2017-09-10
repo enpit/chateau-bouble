@@ -4,7 +4,7 @@ import './demo.css';
 import cat1 from './assets/cat1.png';
 import cat2 from './assets/cat2.png';
 
-import ChateauBuble from './ChateauBuble';
+import ChateauBouble from './ChateauBouble';
 
 const peter = {
   id: 0,
@@ -151,7 +151,7 @@ class Demo extends Component {
           width: 420,
           border: '1px solid #ededed'
         }}>
-          <ChateauBuble status={this.state.chatStatus} title={this.state.chatTitle} messages={this.state.messages} onAddMessage={(msg) => this.onAddMessage(msg)} themeKey={this.state.theme} user={this.state.user} interactiveMode={this.state.interactiveMode} dimensions={{
+          <ChateauBouble status={this.state.chatStatus} title={this.state.chatTitle} messages={this.state.messages} onAddMessage={(msg) => this.onAddMessage(msg)} themeKey={this.state.theme} user={this.state.user} interactiveMode={this.state.interactiveMode} dimensions={{
             width: 420,
             height: 600
           }}/>
