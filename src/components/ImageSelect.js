@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import FontAwesome from 'react-fontawesome';
 
-const ImageLogo = styled(FontAwesome)`
+const ImageLogo = styled.span`
   color: ${props => props.theme.ImageSelectLogo.color};
   font-size: 24px;
 
@@ -37,7 +36,7 @@ const ImageSelect = ({author = {}, onSubmit}) => {
 
   return (
     <label htmlFor="file-upload">
-      <ImageLogo name="image" />
+      <ImageLogo name="image">o</ImageLogo>
       <InvisibleInput type="file" id="file-upload"
         onChange={(e)=> handleImageChange(e, onSubmit)} />
     </label>
