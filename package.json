@@ -1,6 +1,7 @@
 {
   "name": "chateau-bouble",
   "version": "0.1.0",
+  "main": "ChateauBouble.js",
   "private": true,
   "dependencies": {
     "emoji-mart": "^1.0.0",
@@ -9,7 +10,6 @@
     "react": "^15.6.1",
     "react-autosize-textarea": "^0.4.5",
     "react-dom": "^15.6.1",
-    "react-fontawesome": "^1.6.1",
     "react-image-lightbox": "^4.1.0",
     "react-markdown": "^2.5.0",
     "react-popup": "^0.8.0",

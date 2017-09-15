@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import FontAwesome from 'react-fontawesome';
 import TextArea from 'react-autosize-textarea';
 
 import EmojiPicker from './EmojiPicker';
@@ -169,7 +168,7 @@ class TextInput extends React.Component {
         </EmojiPickerWrapper>
         <TextSubmitWrapper>
           <TextSubmitButton onClick={() => message !== '' && this.handleSendMessage()}>
-            <FontAwesome name="paper-plane" />
+            >
           </TextSubmitButton>
         </TextSubmitWrapper>
       </TextView>

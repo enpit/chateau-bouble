@@ -15,11 +15,11 @@ For the purpose of this hackathon, we have also included some demo code which re
 
 ### messages
 
-Array of messages that should be rendered. When a new message arrives (e.g. from your messaging server) pass the `messages` array with the additional message(s) and Chateau Bublé will render the change accordingly. You should probably save the `messages` in component state (or in your Redux store if you use that).
+Array of messages that should be rendered. When a new message arrives (e.g. from your messaging server) pass the `messages` array with the additional message(s) and Chateau Boublé will render the change accordingly. You should probably save the `messages` in component state (or in your Redux store if you use that).
 
 ### onAddMessage
 
-Function that is executed when the user sends a new message via Chateau Bublé. This is where you should send the message to your server (if you have any). In most cases you should also update your `messages` to include the newly added message. See the `onAddMessage` function in 'Usage' for an example.
+Function that is executed when the user sends a new message via Chateau Boublé. This is where you should send the message to your server (if you have any). In most cases you should also update your `messages` to include the newly added message. See the `onAddMessage` function in 'Usage' for an example.
 
 ### theme
 
@@ -31,7 +31,7 @@ Pick different themes at runtime. Supported:
 
 ### interactiveMode
 
-If you just want to use the Chateau Bublé for displaying a chat view without a text input field or header, set this to false. Useful for example for displaying a website with a conversational UI. Defaults to `true`.
+If you just want to use the Chateau Boublé for displaying a chat view without a text input field or header, set this to false. Useful for example for displaying a website with a conversational UI. Defaults to `true`.
 
 ### chatStatus
 
@@ -47,7 +47,7 @@ A string describing who the user of the application is. This string is matched a
 
 ### dimensions
 
-An object containing the ChateauBublés `height` and `width` in pixels.
+An object containing the ChateauBoublés `height` and `width` in pixels.
 
 ## Usage
 
