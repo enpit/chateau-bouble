@@ -3,8 +3,8 @@ import React from 'react';
 import ChatView from './components/ChatView';
 import Themes from './themes';
 
-const ChateauBuble = (props) => {
-    const theme = Themes[props.themeKey || 'chateauBuble'];
+const ChateauBouble = (props) => {
+    const theme = Themes[props.themeKey || 'chateauBouble'];
 
     return (
         <ChatView {...props} theme={theme} />
@@ -12,4 +12,4 @@ const ChateauBuble = (props) => {
 }
 
 
-export default ChateauBuble;
+export default ChateauBouble;

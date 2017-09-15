@@ -1,4 +1,4 @@
-# Chateau Bublé
+# Chateau Boublé
 
 > the most exquisite Chatbubble UI in React
 
@@ -9,7 +9,7 @@ The main contribution of this project is a reusable chat frontend component for 
 1. developers who want to implement a chat application but do not want to do the chat UI themselves
 2. frontend developers who want to display a conversational UI in their website (with or without any interaction on the users part), but do not need a complete chat backend
 
-For the purpose of this hackathon, we have also included some demo code which renders the ChateauBuble component and interacts with it. When releasing this component to the public after the hackathon, we will remove the demo code in `Demo.js` (and all the corresponding files such as `demo.css`) and just export the `ChateauBuble.js` component.
+For the purpose of this hackathon, we have also included some demo code which renders the ChateauBouble component and interacts with it. When releasing this component to the public after the hackathon, we will remove the demo code in `Demo.js` (and all the corresponding files such as `demo.css`) and just export the `ChateauBouble.js` component.
 
 ## API
 
@@ -54,7 +54,7 @@ An object containing the ChateauBublés `height` and `width` in pixels.
 ``` js
 import React, { Component } from 'react';
 
-import ChateauBuble from './ChateauBuble';
+import ChateauBouble from './ChateauBouble';
 
 const peter = {
   id: 0,
@@ -100,7 +100,7 @@ class Demo extends Component {
   }
 
   render () {
-    return <ChateauBuble chatStatus={this.state.chatStatus} 
+    return <ChateauBouble chatStatus={this.state.chatStatus} 
                          chatTitle={this.state.chatTitle}
                          messages={this.state.messages}
                          onAddMessage={(msg) => this.onAddMessage(msg)}
