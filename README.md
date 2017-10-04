@@ -1,6 +1,10 @@
+<h1 align="center">
+  <img src="./assets/cb.png" width="350">
+</h1>
+
 # Chateau Boublé
 
-> the most exquisite Chatbubble UI in React
+> The most exquisite Chatbubble UI in React
 
 ## Remarks
 
