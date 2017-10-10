@@ -26,6 +26,7 @@ const EmojiLogo = styled(VerticalCenteredDiv)`
   }
 `;
 
+
 const emojiSet = 'emojione';
 const emojiSize = 32;
 
@@ -65,7 +66,7 @@ class EmojiPicker extends React.Component {
     return (
       <div ref={(el) => this.div = el }>
         <Tooltip
-          placement="topRight"
+          placement="topLeft"
           mouseEnterDelay={0}
           mouseLeaveDelay={0.5}
           destroyTooltipOnHide={true}
