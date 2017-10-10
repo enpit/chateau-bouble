@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 import {render} from 'react-dom'
-//import styled from 'styled-components';
-//import './demo.css';
 import cat1 from '../../src/assets/cat1.png';
 import cat2 from '../../src/assets/cat2.png';
 
