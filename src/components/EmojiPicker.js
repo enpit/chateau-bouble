@@ -46,6 +46,13 @@ class EmojiPicker extends React.Component {
   }
 
   componentDidMount () {
+    
+    this.calculatePosition();
+
+    window.addEventListener('resize', this.calculatePosition.bind(this));
+  }
+
+  calculatePosition () {
     const rect = this.div.getBoundingClientRect();
     const bodyRect = document.body.getBoundingClientRect();
     const pickerWidth = 338;
@@ -54,7 +61,7 @@ class EmojiPicker extends React.Component {
       x += bodyRect.width - (x + pickerWidth) - 10;
     }
     this.pickerX = x;
-    this.forceUpdate();
+    this.forceUpdate(); 
   }
 
   render () {
