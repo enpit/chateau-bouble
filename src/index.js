@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Demo from './Demo';
+import ChateauBouble from './ChateauBouble';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<Demo />, document.getElementById('root'));
-registerServiceWorker();
+// ReactDOM.render(<Demo />, document.getElementById('root'));
+// registerServiceWorker();
+
+export default ChateauBouble;
