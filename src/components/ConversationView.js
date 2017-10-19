@@ -37,7 +37,7 @@ class ConversationView extends React.Component {
 	}
 
   render () {
-    const { messages, user } = this.props;
+    const { messages, user, api } = this.props;
 
     const bubbles = messages.map((message, index) => {
         let bubbleli;
@@ -45,12 +45,12 @@ class ConversationView extends React.Component {
         if (index === messages.length-1) {
             bubbleli =
                 <li key={message.time} ref={ (el) => {this.el = el;} }>
-                    <Message author={message.author} content={message.content} time={message.time} type={message.type} isOwnMessage={message.author === user} />
+                    <Message author={message.author} content={message.content} time={message.time} type={message.type} isOwnMessage={message.author === user} api={api} user={user} />
                 </li>;
         } else {
             bubbleli =
                 <li key={message.time}>
-                    <Message author={message.author} content={message.content} time={message.time} type={message.type} isOwnMessage={message.author === user} />
+                    <Message author={message.author} content={message.content} time={message.time} type={message.type} isOwnMessage={message.author === user} api={api} user={user}/>
                 </li>;
         }
 

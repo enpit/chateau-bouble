@@ -39,7 +39,7 @@ const GenericBubble = (Message, BubbleAttributes) => {
     }
 
     render () {
-      const {author, content, isOwnMessage} = this.props;
+      const {author, content, isOwnMessage, api, user} = this.props;
       let Bubble;
 
       if (isOwnMessage) {
@@ -63,7 +63,7 @@ const GenericBubble = (Message, BubbleAttributes) => {
       return (
         <Bubble>
           <Author author={author} isOwnMessage={isOwnMessage} />
-          <Message content={content} />
+          <Message content={content} api={api} user={user} />
         </Bubble>
       );
     }

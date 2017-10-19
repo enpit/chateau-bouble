@@ -55,6 +55,15 @@ class Demo extends Component {
           content: 'How\'s your hackathon going?',
           time: 1498326808910
         }, {
+          author: andreas,
+          type: 'selection',
+          content: [
+            'Nice!',
+            'awesome...',
+            'Great =)'
+          ],
+          time: 1498326818323
+        }, {
           author: janis,
           type: 'text',
           content: 'Awesome!',
@@ -85,6 +94,18 @@ class Demo extends Component {
       theme: 'default',
       interactiveMode: true
     }
+  }
+
+  onAddMessage(msg) {
+    this.setState((prevState, props) => {
+      return {
+        ...prevState,
+        messages: ([
+          ...(prevState.messages),
+          msg
+        ])
+      };
+    });
   }
 
   render() {
