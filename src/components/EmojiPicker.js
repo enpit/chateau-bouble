@@ -39,6 +39,11 @@ class EmojiPicker extends React.Component {
     const oReq = new XMLHttpRequest();
     oReq.open("GET", sheetUrl);
     oReq.send();
+
+    this.PickerContainer = styled.div`
+      position: relative;
+      left: ${this.pickerX}px !important;
+    `;
   }
 
   onPickEmoji (emoji) {
@@ -46,7 +51,6 @@ class EmojiPicker extends React.Component {
   }
 
   componentDidMount () {
-    
     this.calculatePosition();
 
     window.addEventListener('resize', this.calculatePosition.bind(this));
@@ -61,7 +65,7 @@ class EmojiPicker extends React.Component {
       x += bodyRect.width - (x + pickerWidth) - 10;
     }
     this.pickerX = x;
-    this.forceUpdate(); 
+    this.forceUpdate();
   }
 
   render () {

@@ -3,7 +3,7 @@ import {render} from 'react-dom'
 import cat1 from '../../src/assets/cat1.png';
 import cat2 from '../../src/assets/cat2.png';
 
-import ChateauBouble from '../../src/ChateauBouble';
+import ChateauBouble from '../../src/index';
 
 const peter = {
   id: 0,
@@ -108,10 +108,19 @@ class Demo extends Component {
           width: 420,
           border: '1px solid #ededed'
         }}>
-          <ChateauBouble status={this.state.chatStatus} title={this.state.chatTitle} messages={this.state.messages} onAddMessage={(msg) => this.onAddMessage(msg)} themeKey={this.state.theme} user={this.state.user} interactiveMode={this.state.interactiveMode} displayEmojiPicker={this.state.displayEmojiPicker} dimensions={{
-            width: 420,
-            height: 600
-          }}/>
+          <ChateauBouble
+            status={this.state.chatStatus}
+            title={this.state.chatTitle}
+            messages={this.state.messages}
+            onAddMessage={(msg) => this.onAddMessage(msg)}
+            themeKey={this.state.theme}
+            user={this.state.user}
+            interactiveMode={this.state.interactiveMode}
+            displayEmojiPicker={this.state.displayEmojiPicker}
+            dimensions={{
+              width: 420,
+              height: 600
+            }}/>
         </div>
       </div>
     )

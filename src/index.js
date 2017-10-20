@@ -1,6 +1,14 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import ChateauBouble from './ChateauBouble';
-import registerServiceWorker from './registerServiceWorker';
+
+import ChatView from './components/ChatView';
+import Themes from './themes';
+
+const ChateauBouble = (props) => {
+  const theme = Themes[props.themeKey || 'default'];
+
+  return (
+    <ChatView {...props} theme={theme} />
+  );
+}
 
 export default ChateauBouble;

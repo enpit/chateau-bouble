@@ -15,6 +15,17 @@ const MessageUL = styled.ul`
   background-size: ${props => props.theme.ConversationView.backgroundSize};
 `;
 
+/**
+ * Returns a function that sets the ref of `that` (or null)
+ */
+const refHandler = (index, length, that) => {
+  if (index === length) {
+    return (el) => {that.el = el;};
+  } else {
+    return null;
+  }
+};
+
 class ConversationView extends React.Component {
 
   componentDidUpdate () {
@@ -28,41 +39,26 @@ class ConversationView extends React.Component {
 	scrollToBottom () {
 		if (this.el === undefined) return;
 		this.el.parentNode.style.overflowY = 'hidden';
-		
+
 		setTimeout(function () {
       this.el.parentNode.scrollTop = this.el.parentNode.scrollHeight;
 			this.el.parentNode.style.overflowY = 'scroll';
     }.bind(this),0);
-    
 	}
 
   render () {
     const { messages, user } = this.props;
 
-    const bubbles = messages.map((message, index) => {
-        let bubbleli;
-
-        if (index === messages.length-1) {
-            bubbleli =
-                <li key={message.time} ref={ (el) => {this.el = el;} }>
-                    <Message author={message.author} content={message.content} time={message.time} type={message.type} isOwnMessage={message.author === user} />
-                </li>;
-        } else {
-            bubbleli =
-                <li key={message.time}>
-                    <Message author={message.author} content={message.content} time={message.time} type={message.type} isOwnMessage={message.author === user} />
-                </li>;
-        }
-
-        return bubbleli;
-    });
+    const messagelis = messages.map((message, index) => (
+      <li key={message.time} ref={refHandler(index, messages.length - 1, this)}>
+        <Message author={message.author} content={message.content} time={message.time} type={message.type} isOwnMessage={message.author === user} />
+      </li>
+    ));
 
     return (
-        <MessageUL>{bubbles}</MessageUL>
+        <MessageUL>{messagelis}</MessageUL>
     );
-
   }
-
 };
 
 export default ConversationView;

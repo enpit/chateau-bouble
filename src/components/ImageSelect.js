@@ -32,15 +32,12 @@ const handleImageChange = (e, callback) => {
   reader.readAsDataURL(file);
 }
 
-const ImageSelect = ({author = {}, onSubmit}) => {
-
-  return (
-    <label htmlFor="file-upload">
-      <ImageLogo name="image">o</ImageLogo>
-      <InvisibleInput type="file" id="file-upload"
-        onChange={(e)=> handleImageChange(e, onSubmit)} />
-    </label>
-  );
-};
+const ImageSelect = ({author = {}, onSubmit}) => (
+  <label htmlFor="file-upload">
+    <ImageLogo name="image">o</ImageLogo>
+    <InvisibleInput type="file" id="file-upload"
+      onChange={(e)=> handleImageChange(e, onSubmit)} />
+  </label>
+);
 
 export default ImageSelect;

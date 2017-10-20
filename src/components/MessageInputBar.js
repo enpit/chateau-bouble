@@ -102,52 +102,52 @@ const EmojiPickerWrapper = styled.div`
 const createMessage = (user, content, type) =>
   ({ author: user, content, time: (new Date()).getTime(), type });
 
-class TextInput extends React.Component {
-	constructor (props) {
-		super(props);
-		this.state = { message: '' };
-		this.handleChangeText = this.handleChangeText.bind(this);
-		this.handleSendMessage = this.handleSendMessage.bind(this);
-		this.handleKeyDown = this.handleKeyDown.bind(this);
-		this.onPickEmoji = this.onPickEmoji.bind(this);
-		this.onPickImage = this.onPickImage.bind(this);
-	}
+class MessageInputBar extends React.Component {
+  constructor (props) {
+    super(props);
+    this.state = { message: '' };
+    this.handleChangeText = this.handleChangeText.bind(this);
+    this.handleSendMessage = this.handleSendMessage.bind(this);
+    this.handleKeyDown = this.handleKeyDown.bind(this);
+    this.onPickEmoji = this.onPickEmoji.bind(this);
+    this.onPickImage = this.onPickImage.bind(this);
+  }
 
-	handleSendMessage () {
-		if (this.state.message !== '') {
-			const message = createMessage(this.props.user, this.state.message, 'text');
-			this.props.onAddMessage(message);
-			this.setState({ message: '' });
-		}
-	}
+  handleSendMessage () {
+    if (this.state.message !== '') {
+      const message = createMessage(this.props.user, this.state.message, 'text');
+      this.props.onAddMessage(message);
+      this.setState({ message: '' });
+    }
+  }
 
-	handleKeyDown (event) {
-		if (event.keyCode === 13) {
-			event.preventDefault();
-			this.handleSendMessage();
-		}
-	}
+  handleKeyDown (event) {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      this.handleSendMessage();
+    }
+  }
 
-	handleChangeText (evt) {
-		this.setState({
-			message: evt.target.value
-		});
-	}
+  handleChangeText (evt) {
+    this.setState({
+      message: evt.target.value
+    });
+  }
 
-	onPickEmoji (emoji) {
-		this.setState({
-			message: this.state.message + emoji
-		})
-	}
+  onPickEmoji (emoji) {
+    this.setState({
+      message: this.state.message + emoji
+    })
+  }
 
-	onPickImage (imageUrl) {
-		const { user } = this.props;
-		const message = createMessage(user, { alt: `Image uploaded by ${user.name}`, url: imageUrl}, 'image');
-		this.props.onAddMessage(message);
-	}
+  onPickImage (imageUrl) {
+    const { user } = this.props;
+    const message = createMessage(user, { alt: `Image uploaded by ${user.name}`, url: imageUrl}, 'image');
+    this.props.onAddMessage(message);
+  }
 
-	render () {
-	const { message } = this.state;
+  render () {
+  const { message } = this.state;
     return (
       <TextView>
         <ImageSelectWrapper>
@@ -179,4 +179,4 @@ class TextInput extends React.Component {
   }
 }
 
-export default TextInput;
+export default MessageInputBar;

@@ -1,12 +1,11 @@
-//import css from '../styles/index.css';
 import React from 'react';
 import styled, {ThemeProvider} from 'styled-components';
 
 import Header from './Header';
 import ConversationView from './ConversationView';
-import TextInput from './TextInput';
+import MessageInputBar from './MessageInputBar';
 
-const ChatView = styled.div `
+const ChatViewWrapper = styled.div `
     background-color: ${props => props.theme.ChatView.background};
     font-family: ${props => props.theme.ChatView.fontFamily};
     font-size: 14px;
@@ -14,12 +13,14 @@ const ChatView = styled.div `
     width: ${props => props.dimensions.width}px;
 `;
 
-export default ({dimensions, displayEmojiPicker, interactiveMode, messages, onAddMessage, status, theme, title, user}) => (
+const ChatView = ({dimensions, displayEmojiPicker, interactiveMode, messages, onAddMessage, status, theme, title, user}) => (
   <ThemeProvider theme={theme}>
-    <ChatView dimensions={dimensions}>
+    <ChatViewWrapper dimensions={dimensions}>
       { interactiveMode && <Header status={status} title={title} user={user}/>}
       <ConversationView messages={messages} user={user}/>
-      { interactiveMode && <TextInput onAddMessage={onAddMessage} user={user} displayEmojiPicker={displayEmojiPicker} />}
-    </ChatView>
+      { interactiveMode && <MessageInputBar onAddMessage={onAddMessage} user={user} displayEmojiPicker={displayEmojiPicker} />}
+    </ChatViewWrapper>
   </ThemeProvider>
 );
+
+export default ChatView;

@@ -12,7 +12,7 @@ const Image = styled.img`
   border: ${props => props.theme.ImageBubble.border}
 `;
 
-class ImageBubbleClass extends React.Component {
+class ImageBubbleComponent extends React.Component {
 
   constructor (props) {
     super(props);
@@ -37,7 +37,7 @@ class ImageBubbleClass extends React.Component {
 }
 
 const ImageBubble = GenericBubble(
-  ImageBubbleClass,
+  ImageBubbleComponent,
   ({content}) => (`
     background-image: url(${content.url});
     background-size: cover;

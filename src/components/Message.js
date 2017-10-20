@@ -25,7 +25,7 @@ const Time = styled.span`
   margin-bottom: 0.25em;
 `;
 
-class message extends React.Component {
+class Message extends React.Component {
 
   shouldComponentUpdate (nextProps) {
     return this.props.content === nextProps.content;
@@ -61,4 +61,4 @@ class message extends React.Component {
   }
 };
 
-export default message;
+export default Message;
