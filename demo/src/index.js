@@ -88,6 +88,18 @@ class Demo extends Component {
     }
   }
 
+  onAddMessage(msg) {
+    this.setState((prevState, props) => {
+      return {
+        ...prevState,
+        messages: ([
+          ...(prevState.messages),
+          msg
+        ])
+      };
+    });
+  }
+
   render() {
     return (
       <div id="demo">
