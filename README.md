@@ -53,6 +53,10 @@ A string describing who the user of the application is. This string is matched a
 
 An object containing the ChateauBoublés `height` and `width` in pixels.
 
+### displayEmojiPicker
+
+A boolean indicating wether to display the emoji picker or not.
+
 ## Usage
 
 ``` js
@@ -111,6 +115,7 @@ class Demo extends Component {
                          theme={this.state.theme}
                          user={this.state.user}
                          interactiveMode={this.state.interactiveMode}
+                         displayEmojiPicker{true}
                          dimensions={{
                            width: 420,
                            height: 600

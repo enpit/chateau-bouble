@@ -163,9 +163,12 @@ class TextInput extends React.Component {
             placeholder="type here"
           />
         </TextInputWrapper>
-        <EmojiPickerWrapper>
-          <EmojiPicker content={message} updateMessage={this.onPickEmoji}/>
-        </EmojiPickerWrapper>
+        {
+          this.props.displayEmojiPicker &&
+          <EmojiPickerWrapper>
+            <EmojiPicker content={message} updateMessage={this.onPickEmoji}/>
+          </EmojiPickerWrapper>
+        }
         <TextSubmitWrapper>
           <TextSubmitButton onClick={() => message !== '' && this.handleSendMessage()}>
             >

@@ -83,7 +83,8 @@ class Demo extends Component {
       chatTitle: 'enpit #reactriot',
       user: janis,
       theme: 'default',
-      interactiveMode: true
+      interactiveMode: true,
+      displayEmojiPicker: true
     }
   }
 
@@ -95,7 +96,7 @@ class Demo extends Component {
           width: 420,
           border: '1px solid #ededed'
         }}>
-          <ChateauBouble status={this.state.chatStatus} title={this.state.chatTitle} messages={this.state.messages} onAddMessage={(msg) => this.onAddMessage(msg)} themeKey={this.state.theme} user={this.state.user} interactiveMode={this.state.interactiveMode} dimensions={{
+          <ChateauBouble status={this.state.chatStatus} title={this.state.chatTitle} messages={this.state.messages} onAddMessage={(msg) => this.onAddMessage(msg)} themeKey={this.state.theme} user={this.state.user} interactiveMode={this.state.interactiveMode} displayEmojiPicker={this.state.displayEmojiPicker} dimensions={{
             width: 420,
             height: 600
           }}/>

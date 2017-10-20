@@ -14,12 +14,12 @@ const ChatView = styled.div `
     width: ${props => props.dimensions.width}px;
 `;
 
-export default ({dimensions, interactiveMode, messages, onAddMessage, status, theme, title, user}) => (
+export default ({dimensions, displayEmojiPicker, interactiveMode, messages, onAddMessage, status, theme, title, user}) => (
   <ThemeProvider theme={theme}>
     <ChatView dimensions={dimensions}>
       { interactiveMode && <Header status={status} title={title} user={user}/>}
       <ConversationView messages={messages} user={user}/>
-      { interactiveMode && <TextInput onAddMessage={onAddMessage} user={user}/>}
+      { interactiveMode && <TextInput onAddMessage={onAddMessage} user={user} displayEmojiPicker={displayEmojiPicker} />}
     </ChatView>
   </ThemeProvider>
 );
