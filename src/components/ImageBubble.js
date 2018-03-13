@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import produce from 'immer';
 import Lightbox from 'react-image-lightbox';
 
 import GenericBubble from './GenericBubble';
@@ -24,10 +25,12 @@ class ImageBubbleComponent extends React.Component {
   render () {
     return (
       <div>
-        <Image alt={this.props.content.alt} src={this.props.content.url} onClick={() => this.setState({ fullscreen: true })} />
+        <Image alt={this.props.content.alt}
+          src={this.props.content.url}
+          onClick={() => this.setState(produce(draft => { draft.fullscreen = true; }))} />
         { this.state.fullscreen && <Lightbox
           mainSrc={this.props.content.url}
-          onCloseRequest={() => this.setState({ fullscreen: false })}
+          onCloseRequest={() => this.setState(produce(draft => { draft.fullscreen = false; }))}
           enableZoom={false}
         />
         }

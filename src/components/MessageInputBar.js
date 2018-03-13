@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import produce from 'immer';
 import TextArea from 'react-autosize-textarea';
 
 import EmojiPicker from './EmojiPicker';
@@ -117,7 +118,9 @@ class MessageInputBar extends React.Component {
     if (this.state.message !== '') {
       const message = createMessage(this.props.user, this.state.message, 'text');
       this.props.onAddMessage(message);
-      this.setState({ message: '' });
+      this.setState(produce(draft => {
+        draft.message = '';
+      }));
     }
   }
 
@@ -129,15 +132,16 @@ class MessageInputBar extends React.Component {
   }
 
   handleChangeText (evt) {
-    this.setState({
-      message: evt.target.value
-    });
+    const text = evt.target.value; // see https://reactjs.org/docs/events.html#event-pooling
+    this.setState(produce(draft => {
+      draft.message = text;
+    }));
   }
 
   onPickEmoji (emoji) {
-    this.setState({
-      message: this.state.message + emoji
-    })
+    this.setState(produce(draft => {
+      draft.message += emoji;
+    }));
   }
 
   onPickImage (imageUrl) {
